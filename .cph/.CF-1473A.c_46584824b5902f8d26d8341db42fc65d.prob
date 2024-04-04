@@ -1,0 +1,1 @@
+{"name":"Local: CF-1473A","url":"d:\\Codes\\C Programming\\CodeForce\\CF-1473A.c","tests":[{"id":1712212639050,"input":"3\n5 3\n2 3 2 5 4\n3 4\n2 4 4\n5 4\n2 1 5 3 6\n","output":"NO\nYES\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\C Programming\\CodeForce\\CF-1473A.c","group":"local","local":true}
