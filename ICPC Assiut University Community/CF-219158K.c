@@ -7,7 +7,7 @@ int main()
 
     int min =0,max =0;
 
-    if (a<b && a<c)
+    if (a<=b && a<=c)
     {
         printf("%d ",a);
         if (b>c)
@@ -15,7 +15,7 @@ int main()
         else
             printf("%d\n",c);
     }
-    else if (a>b && b<c)
+    else if (a>=b && b<=c)
     {
         printf("%d ",b);
         if (a>c)
