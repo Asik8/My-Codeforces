@@ -1,0 +1,1 @@
+{"name":"Local: CF-1840A","url":"d:\\Codes\\CodeForce\\CF-1840A.c","tests":[{"id":1712679833464,"input":"3\n8\nabacabac\n5\nqzxcq\n20\nccooddeeffoorrcceess","output":"ac\nq\ncodeforces"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1840A.c","group":"local","local":true}
