@@ -1,0 +1,1 @@
+{"name":"Local: CF-1650A","url":"d:\\Codes\\CodeForce\\CF-1650A.c","tests":[{"id":1712681194342,"input":"5\nabcde\nc\nabcde\nb\nx\ny\naaaaaaaaaaaaaaa\na\ncontest\nt\n","output":"YES\nNO\nNO\nYES\nYES\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1650A.c","group":"local","local":true}
