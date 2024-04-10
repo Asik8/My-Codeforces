@@ -6,31 +6,26 @@ for i in range(n):
         print('Both')
     else:
         l = {}
+        times =[]
         if x>y:
             for i in range(a//2+1):
                 vanya = (i+1)/x
                 vova = (i+1)/y
                 l[vanya] = 'vanya'
                 l[vova] = 'Vova'
+                times.append(vanya)
+                times.append(vova)
             print(l)
-            # if l[a-1] ==l[a]:
-            #     print("Both")
-            # else:
-            #     if a%2==1:
-            #         print("Vanya")
-            #     else:
-            #         print("Vova")
+            
         if x<y:
             for i in range(a//2+1):
                 vanya = (i+1)/x
                 vova = (i+1)/y
                 l[vova] = 'Vova'
                 l[vanya] = 'Vanya'
+                times.append(vanya)
+                times.append(vova)
             print(l)
-            # if l[a-1] ==l[a]:
-            #     print("Both")
-            # else:
-            #     if a%2==1:
-            #         print("Vova")
-            #     else:
-            #         print("Vanya")
+            
+        s_dict = sorted(l.keys())
+        print(s_dict)

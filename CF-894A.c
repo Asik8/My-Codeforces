@@ -17,30 +17,26 @@ int main()
         printf("0\n");
     else
     {
-        int q = 0, a = 0;
-        for (int i = 0; i < strlen(c); i++)
+        int q = 0;
+        for (int i = 0; i < strlen(c) - 2; i++)
         {
             if (c[i] == 'Q')
-                q++;
-            else if (c[i] == 'A')
-                a++;
+            {
+                for (int j = i + 1; j < strlen(c) - 1; j++)
+                {
+                    if (c[j] == 'A')
+                        for (int k = j + 1; k < strlen(c); k++)
+                        {
+                            if (c[k] == 'Q')
+                            {
+                                q++;
+                            }
+                        }
+                }
+            }
         }
-        if (q >= 2 && a >= 1)
-        {
-            int count = a;
-            // if (q % 2 == 0)
-            // {
-            //     count += q / 2;
-            // }
-            // else
-                count += q - 1;
 
-            printf("%d\n", count);
-            // printf("Q=%d\n", q);
-            // printf("A=%d\n", a);
-        }
-        else
-            printf("0\n");
+        printf("%d\n", q);
     }
 
     return 0;
