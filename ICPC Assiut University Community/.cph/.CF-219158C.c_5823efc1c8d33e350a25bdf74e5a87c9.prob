@@ -1,0 +1,1 @@
+{"name":"Local: CF-219158C","url":"d:\\Codes\\CodeForce\\ICPC Assiut University Community\\CF-219158C.c","tests":[{"id":1713113696100,"input":"5 10","output":"5 + 10 = 15\n5 * 10 = 50\n5 - 10 = -5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\ICPC Assiut University Community\\CF-219158C.c","group":"local","local":true}

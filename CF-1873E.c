@@ -8,13 +8,24 @@
 #define lli long long int
 #define max_size 100000
 
-int compare(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);
-}
-
-int bi_search(int ar[],int n,int x)
+int bi_search(int ar[],int max,int x,int n)
 {
-    int l=0,h=n-1,mid;
+    lli l=1,h=1e10,mid,sum =0;
+    while(l<h-1)
+    {
+        mid = l+(h-1)/2;
+        for(int i=0;i<n;i++)
+        {
+            if(ar[i]<mid)
+                sum+=mid - ar[i];
+        }
+        if(sum>x)
+            h = mid;
+        else if(sum<x)
+            l = mid;   
+    }
+    printf("%lld\n",mid);
+    return;
     
 }
 
@@ -27,11 +38,13 @@ int main()
     {
         int n,x;
         scanf("%d %d",&n,&x);
-        int ar[n];
-        for (int i = 0; i < n; i++) {
-            scanf("%d",&ar[i]);
+        lli ar[n],max =0;
+        for (lli i = 0; i < n; i++) {
+            scanf("%lld",&ar[i]);
+            if(ar[i]>max)
+                max = ar[i];
         }
-        qsort(ar, n, sizeof(int), compare);
+        bi_search(ar,max,x,n);
     }
 
     return 0;
