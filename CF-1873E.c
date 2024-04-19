@@ -8,25 +8,27 @@
 #define lli long long int
 #define max_size 100000
 
-int bi_search(int ar[],int max,int x,int n)
+void bi_search(lli ar[],lli x,lli n)
 {
-    lli l=1,h=1e10,mid,sum =0;
-    while(l<h-1)
+    lli l=1,h=1e10,ans= 0;
+    while(l<=h)
     {
-        mid = l+(h-1)/2;
-        for(int i=0;i<n;i++)
+        lli sum = 0;
+        lli mid = (l+h)/2;
+        for(lli i=0;i<n;i++)
         {
             if(ar[i]<mid)
-                sum+=mid - ar[i];
+                sum+=(mid-ar[i]);
         }
-        if(sum>x)
-            h = mid;
-        else if(sum<x)
-            l = mid;   
+        if(sum<=x)
+        {
+            ans = mid;
+            l = mid+1;
+        }
+        else
+            h = mid-1;
     }
-    printf("%lld\n",mid);
-    return;
-    
+    printf("%lld\n",ans);
 }
 
 int main()
@@ -36,15 +38,13 @@ int main()
 
     while(t--)
     {
-        int n,x;
-        scanf("%d %d",&n,&x);
-        lli ar[n],max =0;
+        lli n,x;
+        scanf("%lld %lld",&n,&x);
+        lli ar[n];
         for (lli i = 0; i < n; i++) {
             scanf("%lld",&ar[i]);
-            if(ar[i]>max)
-                max = ar[i];
         }
-        bi_search(ar,max,x,n);
+        bi_search(ar,x,n);
     }
 
     return 0;
