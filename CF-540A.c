@@ -1,98 +1,37 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 int main()
 {
-    int n,cont=0,sub2=0,sub1;
+    int n,cont=0;
     scanf("%d",&n);
-    int a[n],b[n];
-
-    for(int k=0;k<n;k++)
-    {
-        scanf("%d",&a[k]);
-    }
-    for(int l=0;l<n;l++)
-    {
-        scanf("%d",&b[l]);
-    }
+    char a[n],b[n];
+    scanf("%s",a);
+    scanf("%s",b);
 
     for(int i=0;i<n;i++)
     {
-        sub2=0;
-            printf("sub2 and i: %d %d\n",sub2,i);
-        for(int j=i;j<i+1;j++)
+        int f = a[i]-'0';
+        int s = b[i]-'0';
+        int d1 = abs(f-s);
+        int min,max;
+        if(f<s)
         {
-            if(a[i]<a[j])
-            {
-                sub1 = a[j]-a[i];
-                 printf("sub1 and j: %d %d\n",sub1,j);
-                while(1)
-                {
-                    a[i]=a[i]-1;
-                    sub2++;
-                    if(sub2>sub1)
-                    {
-                        break;
-                    }
-                    if(a[i]==a[j])
-                    {
-                        break;
-                    }
-                    if(a[i]==0)
-                    {
-                        a[i]=9;
-                    }
-                }
-                if(sub1<sub2)
-                {
-                    cont+=sub1;
-                }
-                else if(sub2<sub1)
-                {
-                    cont+=sub2;
-                }
-                else
-                {
-                    cont+=sub1;
-                }
-            }
-
-            else if(a[i]>a[j])
-            {
-                sub1 = a[i]-a[j];
-                while(1)
-                {
-                    a[j]=a[j]-1;
-                    sub2++;
-                    if(sub2>sub1)
-                    {
-                        break;
-                    }
-                    if(a[i]==a[j])
-                    {
-                        break;
-                    }
-                    if(a[j]==0)
-                    {
-                        a[j]=9;
-                    }
-                }
-                if(sub1<sub2)
-                {
-                    cont+=sub1;
-                }
-                else if(sub2<sub1)
-                {
-                    cont+=sub2;
-                }
-                else
-                {
-                    cont+=sub1;
-                }
-            }
-          
-           
+            min = f;
+            max = s;
         }
+        else
+        {
+            min = s;
+            max = f;
+        }
+        int d2 = (9-max)+min+1;
+        if(d1<d2)
+            cont+=d1;
+        else
+            cont+=d2;
     }
+    
     printf("%d\n",cont);
 
     return 0;
