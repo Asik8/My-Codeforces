@@ -1,0 +1,1 @@
+{"name":"Local: CF-1843C","url":"d:\\Codes\\CodeForce\\CF-1843C.c","tests":[{"id":1714452178645,"input":"6\n3\n10\n37\n1\n10000000000000000\n15\n","output":"4\n18\n71\n1\n19999999999999980\n26\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1843C.c","group":"local","local":true}
