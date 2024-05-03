@@ -1,0 +1,1 @@
+{"name":"Local: CF-1968A","url":"d:\\Codes\\CodeForce\\CF-1968A.cpp","tests":[{"id":1714662425998,"input":"6\n5\n4\n3\n2\n6\n9","output":""},{"id":1714663155884,"input":"7\n10\n7\n21\n100\n2\n1000\n6","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1968A.cpp","group":"local","local":true}
