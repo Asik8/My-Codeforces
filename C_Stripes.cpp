@@ -9,45 +9,41 @@ int main()
 
     while (t--)
     {
-        char a[8][8], ans;
-        int r = 0, b = 0;
-
-        for (int i = 0; i < 8; i++)
+        string s[8];
+        char c = '.';
+        for(int i=0;i<8;i++)
+            cin>>s[i];
+        
+        for(int i=0;i<8;i++)
         {
-            for (int j = 0; j < 8; j++)
+            if(count(s[i].begin(),s[i].end(),'R') == 8)
             {
-                cin >> a[i][j];
-                if (a[i][j] == 'B')
-                    b++;
-                else if (a[i][j] == 'R')
-                    r++;
+                c = 'R';
+                break;
             }
         }
-        if (r > b)
-            cout << 'R' << endl;
-        else if (b > r)
-            cout << 'B' << endl;
-        else
+
+        if(c=='.')
         {
-            bool b_f = false, r_f = false;
-            for (int i = 0; i < 8; i++)
+            for(int j=0;j<8;j++)
             {
-                for (int j = 0; j < 8; j++)
+                bool b = false;
+                for(int i=0;i<8;i++)
                 {
-                    if (a[i][j] == 'R')
+                    if(s[i][j] != 'B')
                     {
-                        if(a[i][j+1] == 'R')
-                        {
-                            for(int l = j;l<8;l++)
-                            {
-                                
-                            }
-                        }
+                        b = true;
+                        break;
+                    }
+                    if(!b)
+                    {
+                        c = 'B';
+                        break;
                     }
                 }
             }
         }
+        cout<<c<<endl;
     }
-
     return 0;
 }
