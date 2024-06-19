@@ -1,6 +1,0 @@
-rst == second)
-        // {
-        //     first++;
-        //     second--;
-        // }
-        
