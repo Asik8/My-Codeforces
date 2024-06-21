@@ -18,14 +18,12 @@ int main()
         {
             cin >> v[i];
         }
-        ll c = 0,sum = 0;
-        unordered_set<ll> us;
+        ll c = 0,sum = 0,mx= INT_MIN;
         for(int i=0;i<n;i++)
         {
-            us.insert(v[i]);
             sum += v[i];
-            if(sum%2 == 0)
-                if(us.count(sum>>1)) c++;
+            mx = max(mx,v[i]);
+            if((sum-mx) == mx) c++;
         }
         cout << c << endl;
     }
