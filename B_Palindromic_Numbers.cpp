@@ -42,8 +42,8 @@ int main() {
                     int y = 1-x;
                     ans+=(y+'0');
                 }
-                reverse(ans.begin(),ans.end());
             }
+            reverse(ans.begin(),ans.end());
         }   
         cout<<ans<<endl;   
     }
