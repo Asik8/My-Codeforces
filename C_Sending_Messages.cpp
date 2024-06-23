@@ -13,35 +13,19 @@ int main()
     ll t;
     cin >> t;
     while (t--) {
-        ll n,bat,a,b;
-        cin>>n>>bat>>a>>b;
+        ll n,f,a,b;
+        cin>>n>>f>>a>>b;
         vector <ll> v(n);
-        bool f = true;
         for (int i = 0; i < n; i++) cin >> v[i];
-        if(v[n-1]>=bat) pn;
-        else
+
+        ll m = 0;
+        for(int i=0;i<n;i++)
         {
-            ll m = v[0];
-            bat -= ((m*a)+b);
-            if(bat<=0 || bat<=v[1]) pn;
-            else
-            {
-                m = v[0];
-                bat -= min(m,b);
-                for(int i=1;i<n;i++)
-                {
-                    m = v[i]-v[i-1];
-                    bat -= min(m,b);
-                    if(bat<0)
-                    {
-                        f = false;
-                        break;
-                    }
-                }
-                if(!f) pn;
-                else py;
-            }
+            f -= min((v[i]-m)*a,b);
+            m = v[i];
         }
+        if(f>0) py;
+        else pn;
     }
     return 0;
 }
