@@ -25,8 +25,8 @@ int main() {
             if(frq[i]%2 == 0) even++;
             if(frq[i]%2 == 1) odd++;
         }  
-        odd--;
-        if(odd<= k && k<=even) cout<<"YES\n";
+        if(odd>0)odd--;
+        if(odd<= k && k<=n) cout<<"YES\n";
         else cout<<"NO\n";
     }
 
