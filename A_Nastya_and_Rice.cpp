@@ -12,15 +12,12 @@ int main() {
     while (t--) {
         ll n,a,b,c,d;
         cin >> n>>a>>b>>c>>d;
-        ll sum_ab = (a+b)*n;
         ll sub_ab = (a-b)*n ;
-        ll high = c+d;
+        ll sum_ab = (a+b)*n;
         ll low = c-d;
-        bool f = false;
-        if(sum_ab>=low && sum_ab<=high) f = true;
-        else if(sub_ab>=low && sub_ab<=high) f = true;
-        if(f) cout<<"Yes\n";
-        else cout<<"No\n";
+        ll high = c+d;
+        if(sum_ab<low || high<sub_ab) cout<<"No\n";
+        else cout<<"Yes\n";
     }
 
     return 0;
