@@ -12,42 +12,30 @@ int main() {
     while (t--) {
         ll n,m;
         cin >> n>>m;
-        ll a[n][m];
-        for (int i = 0; i < n; i++)
-            for(int j=0;j<m;j++) cin >> a[i][j]; 
+        ll a[n+2][m+2]={};
+        for (int i = 1; i <= n; i++)
+            for(int j=1;j<=m;j++) cin >> a[i][j]; 
 
-        int ma = INT_MIN,i_in = 0,j_in = 0;
-        for(int i=0;i<n;i++)
+        for(int i=1;i<=n;i++)
         {
-            for(int j=0;j<m;j++)
+            for(int j=1;j<=m;j++)
             {
-                if(a[i][j] >ma)
+                if(a[i][j] >a[i+1][j] && a[i][j]>a[i-1][j] && a[i][j]>a[i][j+1] && a[i][j]>a[i][j-1])
                 {
-                    ma = a[i][j];
+                    ll ma = max(max(a[i+1][j],a[i-1][j]),max(a[i][j+1],a[i][j-1]));
+                    a[i][j] = ma;
                 }
             }
         }  
 
-        for(int i=0;i<n;i++)
+        for(int i=1;i<=n;i++)
         {
-            for(int j=0;j<m;j++)
+            for(int j=1;j<=m;j++)
             {
-                if(a[i][j] == ma)
-                {
-                    a[i][j] --;
-                    ma--;
-                }
-            }
-        }      
-
-        for(int i=0;i<n;i++)
-        {
-            for(int j=0;j<m;j++)
-            {
-                cout<<a[i][j]<< " ";
+                cout<<a[i][j]<<" ";
             }
             cout<<endl;
-        }      
+        }         
     }
 
     return 0;
