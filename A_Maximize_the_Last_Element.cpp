@@ -12,14 +12,14 @@ int main() {
     while (t--) {
         ll n;
         cin >> n;
-        vector <ll> v;
+        ll ma = INT_MIN;
         for (int i = 0; i < n; i++)
         {
             ll x;
             cin>>x;
-            if(i%2==0)v.pb(x);
+            if(!(i%2) && x>ma)ma = x;
         }     
-        cout<<*max_element(v.begin(),v.end())<<endl;
+        cout<<ma<<endl;
     }
     return 0;
 }
