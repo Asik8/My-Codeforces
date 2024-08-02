@@ -13,8 +13,7 @@ int main() {
         ll n;
         cin >> n;
         vector <ll> v(n);
-        for (int i = 0; i < n; i++)
-            cin >> v[i];       
+        for (auto& x:v) cin >>x;       
     }
 
     return 0;
