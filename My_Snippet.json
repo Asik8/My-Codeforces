@@ -1,28 +1,62 @@
 {
-    "Normal CPP Language": {
-      "prefix": "cpp",
-      "body": [
-        "#include <bits/stdc++.h>",
-        "using namespace std;",
-        "#define ll long long",
-        "#define pb push_back",
-        "#define pob pop_back",
-        "",
-        "int main() {",
-        "    ios::sync_with_stdio(false);",
-        "    cin.tie(NULL);",
-        "    ll t;",
-        "    cin >> t;",
-        "    while (t--) {",
-        "        ll n;",
-        "        cin >> n;",
-        "        vector <ll> v(n);",
-        "        for (auto& x:v) cin >>x;       ",
-        "    }",
-        "",
-        "    return 0;",
-        "}"
-      ],
-      "description": ""
-    }
-}
+  "Normal CPP Language": {
+    "prefix": "cpp",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "#define ll long long",
+      "#define pb push_back",
+      "#define pob pop_back",
+      "",
+      "int main() {",
+      "    ios::sync_with_stdio(false);",
+      "    cin.tie(NULL);",
+      "    ll t;",
+      "    cin >> t;",
+      "    while (t--) {",
+      "        ll n;",
+      "        cin >> n;",
+      "        vector <ll> v(n);",
+      "        for (auto& x:v) cin >>x;       ",
+      "    }",
+      "",
+      "    return 0;",
+      "}"
+    ],
+    "description": ""
+  },
+  "Singly Linked LIst": {
+    "prefix": "node",
+    "body": [
+      "class Node {",
+      "public:",
+      "    ll data;",
+      "    Node *next;",
+      "",
+      "    Node(ll data) {",
+      "        this->data = data;",
+      "        next = NULL;",
+      "    }",
+      "};"
+    ],
+    "description": ""
+  },
+  "": {
+    "prefix": "",
+    "body": [
+      "class Node {",
+      "public:",
+      "    int data;",
+      "    Node *next;",
+      "    Node *prev;",
+      "",
+      "    Node(int data) {",
+      "        this->data = data;",
+      "        next = NULL;",
+      "        prev = NULL;",
+      "    }",
+      "};"
+    ],
+    "description": ""
+  }
+  }
