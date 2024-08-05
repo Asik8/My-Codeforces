@@ -11,20 +11,20 @@ int main() {
     while (t--) {
         ll n,c=0,x;
         cin >> n;
-        vector <ll> a,b;
+        vector <ll> even,b;
         while (n--) 
         {
             cin >>x; 
             if(x%2) b.pb(x);
-            else a.pb(x);
+            else even.pb(x);
         }      
-        if(a.size() == 0 || b.size()==0) cout<<0<<endl;
+        if(even.size() == 0 || b.size()==0) cout<<0<<endl;
         else
         {
-            sort(a.begin(),a.end());
+            sort(even.begin(),even.end());
             sort(b.begin(),b.end());
-            c = a.size();
-            for(ll i:a)
+            c = even.size();
+            for(ll i:even)
             {
                 if(i<b.back())b.back()+=i;
                 else {
