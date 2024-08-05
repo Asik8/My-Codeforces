@@ -6,7 +6,6 @@
       "using namespace std;",
       "#define ll long long",
       "#define pb push_back",
-      "#define pob pop_back",
       "",
       "int main() {",
       "    ios::sync_with_stdio(false);",
