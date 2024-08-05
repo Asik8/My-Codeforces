@@ -19,7 +19,6 @@
       "        vector <ll> v(n);",
       "        for (auto& x:v) cin >>x;       ",
       "    }",
-      "",
       "    return 0;",
       "}"
     ],
