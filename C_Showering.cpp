@@ -9,22 +9,29 @@ int main() {
     ll t;
     cin >> t;
     while (t--) {
-        ll n,s,m;
+        ll n,s,m,c=0;
         cin >> n>>s>>m;
-        vector <pair<ll,ll>> v;
-        for(int i=0;i<m+1;i++) v.pb(make_pair(i,1));
-        while(n--)
+        vector<pair<ll,ll>> v;
+        bool f = false;
+        v.pb({0,0});
+        for(int i=0;i<n;i++)
         {
             ll l,r;
             cin>>l>>r;
-            for(int i=l;i<=r;i++) v[i].second = 0;
+            v.pb({l,r});
         }
-            ll c=0;
-            for(int i=0;i<m+1;i++) if(v[i].second == 1) c++;
-            cout<<c<<endl;
-            if(c >= s) cout<<"YES\n";
-            else cout<<"NO\n";
+        v.pb({m,m});
+        sort(v.begin(),v.end());
+        for(int i=1;i<n+2;i++)
+        {
+            if(v[i].first-v[i-1].second>=s)
+            {
+                f = true;
+                break;
+            }
+        }
+        if(f) cout<<"YES\n";
+        else cout<<"NO\n";
     }
-
     return 0;
 }

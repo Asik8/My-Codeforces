@@ -2,7 +2,8 @@
 using namespace std;
 #define ll long long
 #define pb push_back
-#define pob pop_back
+#define py cout<<"YES\n";
+#define pn cout<<"NO\n";
 
 int main() {
     ios::sync_with_stdio(false);
