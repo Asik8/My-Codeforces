@@ -1,22 +1,26 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define pb push_back
-#define py cout<<"YES\n";
-#define pn cout<<"NO\n";
-#define forni for (int i = 0; i < n; i++)
-#define fornj for (int j = 0; j < n; j++)
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    ll t;
-    cin >> t;
-    while (t--) {
-        ll n;
-        cin >> n;
-        vector <ll> v(n);
-        for (auto& x:v) cin >>x;       
-    }
+    long long n,value;
+    cin>>n>>value;
+    long long a[n];
+    for(long long i=0;i<n;i++) cin>>a[i];
+    sort(a,a+n);
+    long long l=0,r=n-1;
+    bool f = false;
+    while (l<=r)
+    {
+        long long mid = (l+r)/2;
+        if(a[mid] == value)
+        {
+            f = true;
+            break;
+        }
+        else if(a[mid]<value) l = mid+1;
+        else if(a[mid]>value) r = mid-1;
+    }  
+    if(f == true) cout<<"YES\n";
+    else cout<<"NO\n";
     return 0;
 }
