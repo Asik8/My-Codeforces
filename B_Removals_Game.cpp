@@ -12,23 +12,31 @@ int main() {
         ll n;
         cin >> n;
         vector <ll> v1(n),v2(n);
+        ll l1=0,l2=0,r1=n-1,r2=n-1;
         for (auto& x:v1) cin >>x;       
         for (auto& x:v2) cin >>x;  
+        bool f=false;
         for(int i=0;i<n-1;i++)
         {
-            // if(v1[0] == v2.back())
-            // {
-            //     v1.erase(v1.begin());
-            //     v2.erase(v2.begin());
-            // }
-            // else if(v2[0] == v1.back())
-            // {
-                v1.erase(v1.begin());
-                v2.erase(v2.begin());
-            // }
+            if(v1[l1] != v2[r2] && v1[l1] != v2[l2])
+            {
+                f = true;
+                break;
+            }
+            else if(v1[r1] != v2[r2] && v1[r1] != v2[l2])
+            {
+                f = true;
+                break;
+            }
+            else
+            {
+                if(v1[l1] == v2[r2]) r2--;
+                else if(v1[l1] == v2[l2]) l2++;
+                l1++;
+            }
         }   
-        if(v1 == v2) cout<<"Bob\n";
-        else cout<<"Alice\n";  
+        if(f) cout<<"Alice\n";
+        else cout<<"Bob\n";  
     }
     return 0;
 }
