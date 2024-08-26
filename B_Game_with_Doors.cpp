@@ -30,6 +30,10 @@ int main() {
                 else if(v[i].second == 3 && v[i+1].second == 3)ans++;
                 else if(v[i].second == 3 && v[i+1].second == 1)ans++;
                 else if(v[i].second == 3 && v[i+1].second == 2)ans++;
+                else if(v[i].second == 1 && v[i+1].second == 2)ans++;
+                else if(v[i].second == 2 && v[i+1].second == 1)ans++;
+                else if(v[i].second == 0 && v[i+1].second == 1)ans++;
+                else if(v[i].second == 0 && v[i+1].second == 2)ans++;
             }
             cout<<ans<<endl;
         }       
