@@ -1,1 +1,1 @@
-{"name":"Local: Test","url":"d:\\Codes\\CodeForce\\Test.cpp","tests":[{"id":1718557501325,"input":"20 15\n1 58 4 9 46 97 15 47 85 14 49 25 42 41 97 99 1006 1111 29 50","output":"YES"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\Test.cpp","group":"local","local":true}
+{"name":"Local: Test","url":"d:\\Codes\\CodeForce\\Test.cpp","tests":[],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\Test.cpp","group":"local","local":true}
