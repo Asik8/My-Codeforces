@@ -12,9 +12,7 @@ int main() {
         cin >> n>>m>>q;
         ll t1,t2,s;
         cin>>t1>>t2;
-        ll tmp = min(t1,t2);
-        t2 = max(t1,t2);
-        t1 = tmp;
+        if(t2<t1) swap(t1,t2);
         cin>>s;
         if(s>t2) cout<<n-t2<<endl;
         else if(s<t1) cout<<t1-1<<endl;
