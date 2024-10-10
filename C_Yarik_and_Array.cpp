@@ -2,10 +2,6 @@
 using namespace std;
 #define ll long long
 #define pb push_back
-#define py cout<<"YES\n";
-#define pn cout<<"NO\n";
-#define forni for (int i = 0; i < n; i++)
-#define fornj for (int j = 0; j < n; j++)
 
 int main() {
     ios::sync_with_stdio(false);
@@ -13,10 +9,22 @@ int main() {
     ll t;
     cin >> t;
     while (t--) {
-        ll n;
+        ll n,p,m=INT_MIN,a,s=0;
         cin >> n;
-        vector <ll> v(n);
-        for (auto& x:v) cin >>x;       
+        cin>>a;
+        p = abs(a)%2; 
+        s=a;
+        m = s;
+        for(int i=1;i<n;i++)
+        {
+            cin>>a;
+            if(abs(a)%2 != p) s+=a;
+            else s = a;
+            if(a>s) s = a;
+            p = abs(a)%2;
+            m = max(m,s);
+        }     
+        cout<<m<<endl;
     }
     return 0;
 }
