@@ -13,8 +13,11 @@ int main() {
     while (t--) {
         ll n,k;
         cin>>n>>k;
-        ll ans = ((n*(n+1))/2-((n-k)*((n-k)+1))/2)%2;
-        if(ans) pn
+        ll l = n-k;
+        ll a= (n*(n+1))/2;
+        ll b = (l*(l+1))/2;
+        ll ans = a-b;
+        if(ans%2) pn
         else py
     }
     return 0;
