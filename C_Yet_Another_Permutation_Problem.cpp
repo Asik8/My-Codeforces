@@ -11,25 +11,15 @@ int main() {
     while (t--) {
         ll n;
         cin >> n;
-        ll l=n/2;
-        vector <vector<ll>> v(l+1);
-        vector<bool> a(n+1,false);
-        for(int i=l;i>0;i--){
-            for(int j=i;j<=n;j+=i){
-                if(!a[j]){
-                    v[i].pb(j);
-                    a[j] = true;
-                }
-            }
-        }
+        set<ll>s;
+        for(int i=1;i<=n;i++) s.insert(i);
         vector<ll> ans;
-        vector<bool> vis(n+1,false);
-        for(int i=1;i<=l;i++){
-            if(!vis[i]){
-                for(int j=i;j<=l;j*=2){
-                    vis[j] = true;
-                    for(auto b:v[j]) ans.pb(b);
-                }
+        while(!s.empty()){
+            ll v = *s.begin();
+            while(v<=n){
+                ans.pb(v);
+                s.erase(v);
+                v*=2;
             }
         }
         for(ll x:ans) cout<<x<<" ";
