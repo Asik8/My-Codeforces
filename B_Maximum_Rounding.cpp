@@ -11,44 +11,24 @@ int main() {
     while (t--) {
         string s;
         cin>>s;
-        ll co=0;
-        for(char c:s) if((c-'0')>=5) co++;
-        if(!co) cout<<s<<endl;
+        ll co=-1,n=s.size()-1;
+        for(int i=n;i>0;i--){
+            if((s[i]-'0')>=5){
+                if(s[i-1] !=9){
+                    s[i-1]++;
+                    co = i;
+                }
+            }
+        }
+        if(s[0]>='5'){
+            cout<<1;
+            for(int i=0;i<=n;i++) cout<<"0";
+            cout<<endl;
+        }
         else{
-            if((s[0]-'0')>=5){
-                cout<<"1";
-                for(int i=0;i<s.size();i++) cout<<"0";
-                cout<<endl;
-            }
-            else{
-                ll in=0;
-                for(int i=0;i<s.size();i++){
-                    if((s[i]-'0')>=5){
-                        in = i;
-                        break;
-                    }
-                }
-                if(in==1 && (s[0]-'0'+1)>=5){
-                    cout<<"1";
-                    for(int i=0;i<s.size();i++) cout<<"0";
-                    cout<<endl;
-                }
-                else{
-                    while(in>=1 && (s[in-1]-'0'+1)>=5) in--;  
-                    if(in==0 && (s[0]-'0'+1)>=5){
-                        cout<<"1";
-                        for(int i=0;i<s.size();i++) cout<<"0";
-                        cout<<endl;
-                    }                 
-                    else{
-                        s[in-1]+=1; 
-                        for(int i=0;i<in;i++) cout<<s[i];
-                        for(int i=in;i<s.size();i++) cout<<"0";
-                        cout<<endl;
-                    }
-                }
-            }
-        }    
-    }
+            if(n>0 && co!=-1) for(int i=co;i<=n;i++) s[i] = '0';
+            cout<<s<<endl;
+        }
+    }        
     return 0;
 }
