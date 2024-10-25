@@ -21,7 +21,7 @@ int main() {
                 c=0;
                 s.clear();
             }
-            else s.insert(c);
+            s.emplace(c);
         }   
         cout<<ans<<endl;
     }
