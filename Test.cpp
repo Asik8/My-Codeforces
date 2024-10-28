@@ -1,12 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define ll long long
-#define pb push_back
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    pair<int,int> a = {1,1};
-    auto [b,c] = a; 
-    return 0;
+   ios::sync_with_stdio(false);
+   cin.tie(nullptr);
+
+    pair<string, int> student = { "dablu", 10 };
+    cout << student.first << " " << student.second << '\n';
+    student.first = "bablu";
+
+    auto [name, roll] = student;
+    cout << name << " " << roll << '\n';
+   return 0;
 }
