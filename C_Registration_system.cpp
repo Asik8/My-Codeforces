@@ -2,22 +2,20 @@
 using namespace std;
 #define ll long long int
 
-int main() {
+int main(){
     int t;
     cin >> t;
-    map<string,int>reg;
-    while (t--) {
+    map<string,int>mp;
+    while (t--){
         string s;
         cin>>s;
-        if(reg[s] == 0)
-        {
-            reg[s] = 1;
+        if(mp[s] == 0){
+            mp[s] = 1;
             cout<<"OK\n";
         }
-        else
-        {
-            cout<<s<<reg[s]<<endl;
-            reg[s]++;
+        else{
+            cout<<s<<mp[s]<<endl;
+            mp[s]++;
         }    
     }
     return 0;
