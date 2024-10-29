@@ -27,6 +27,51 @@
     ],
     "description": ""
   },
+  "Cpp-2":{
+	  "prefix": "cpp-2",
+	  "body": [
+		"#include <bits/stdc++.h>",
+		"using namespace std;",
+		"#define ll long long",
+		"#define pb push_back",
+		"#define py cout<<\"YES\\n\";",
+		"#define pn cout<<\"NO\\n\";",
+		"#define forni for (int i = 0; i < n; i++)",
+		"#define fornj for (int j = 0; j < n; j++)",
+		"",
+		"int main(){",
+		"    ios::sync_with_stdio(false);",
+		"    cin.tie(NULL);",
+		"    ll n;",
+		"    cin >> n;",
+		"    vector <ll> v(n);",
+		"    for (auto& x:v) cin >>x;       ",
+		"    return 0;",
+		"}"
+	  ],
+	  "description": ""
+	},
+	"Cpp-3":{
+	  "prefix": "cpp-3",
+	  "body": [
+		"#include <bits/stdc++.h>",
+		"using namespace std;",
+		"#define ll long long",
+		"#define pb push_back",
+		"#define py cout<<\"YES\\n\";",
+		"#define pn cout<<\"NO\\n\";",
+		"#define forni for (int i = 0; i < n; i++)",
+		"#define fornj for (int j = 0; j < n; j++)",
+		"",
+		"int main(){",
+		"    ios::sync_with_stdio(false);",
+		"    cin.tie(NULL);",
+
+		"    return 0;",
+		"}"
+	  ],
+	  "description": ""
+	},
   
   "Singly Linked LIst": {
     "prefix": "node",
