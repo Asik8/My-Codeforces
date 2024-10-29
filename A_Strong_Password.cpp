@@ -4,52 +4,29 @@ using namespace std;
 #define pb push_back
 #define pob pop_back
 
-int main() {
+int main(){
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;
     cin >> t;
-    while (t--) {
-        string s;
+    while (t--){
+        string s,c;
         cin>>s;
-        char c;
         bool f = false;
-        for(int i=0;i<s.size()-1;i++)
-        {
-            if(s[i] == s[i+1]) 
-            {
+        for(int i=0;i<s.size()-1;i++){
+            c.pb(s[i]);
+            if(s[i] == s[i+1] && !f){
                 f = true;
-                break;
+                if(s[i] == 'z') c.pb('a');
+                else c.pb((s[i]+1));
             }
         }
-        if(!f)
-        {
-            cout<<s;
-            c = s.back();
-            if(c == 'z') cout<<'a'<<endl;
-            else 
-            {
-                c = c+1;
-                cout<<c<<endl;
-            }
+        c.pb(s.back());
+        if(!f){
+            if(c.back() == 'z') c.pb('a');
+            else c.pb((s.back()+1));
         }
-        else 
-        {
-            int i=0,d=0;
-            for(i=0;i<s.size()-1;i++)
-            {
-                if(s[i] == s[i+1] && d==0) 
-                {
-                    cout<<s[i];
-                    c = s[i];
-                    if(s[i] == 'z') cout<<'a';
-                    else cout<<char(c+1);
-                    d++;
-                }
-                else cout<<s[i];
-            }
-            cout<<s[i]<<endl;
-        }
+        cout<<c<<endl;
     }
     return 0;
 }
