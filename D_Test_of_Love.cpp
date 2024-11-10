@@ -14,29 +14,17 @@ int main(){
     while (t--){
         ll n,m,k;
         cin >>n>>m>>k;
-        vector <char> s(n+2);
-        s[0]='!';
-        s[n+1]='!';
-        f(i,1,n+1) cin>>s[i];
-        vector<ll>in;
-        in.pb(0);    
-        f(i,0,n+2) if(s[i]=='L') in.pb(i);
-        in.pb(n+1);
-        bool f=true;
-        f(i,0,in.size()-1){
-            if(in[i+1]-in[i]>(m+k)){
-                f = false;
-                break;
-            }
+        string s;
+        cin>>s;
+        ll c=m-1,swim=0,cr=0;
+        for(auto x:s){
+            if(x=='L') c=m;
+            if(x=='W'&&c<=0) swim++;
+            if(x=='C'&&c<=0) cr++;
+            c--;
         }
-        if(f){
-            ll l=in[in.size()-2];
-            f(i,l+m,min(l+k+1,n+2)) if(s[i]=='C'){
-                f=false;
-                break;
-            }
-        }
-        if(f)py else pn
+        if(swim>k) cr++;
+        if(cr) pn else py
     }
     return 0;
 }
