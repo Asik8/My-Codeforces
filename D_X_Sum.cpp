@@ -24,8 +24,47 @@ int main(){
                 cin>>a[i][j];
             }
         }   
-        ll mx=INT_MIN;
-            
+        ll mx=INT_MIN,c=0;
+        f(i,0,n){
+            f(j,0,m){
+                c=0;
+                ll x=i,y=j;
+                while(true){
+                    x--,y--;
+                    if(check(n,m,x,y)){
+                        c+=a[x][y];
+                    }
+                    else break;
+                }
+                x=i,y=j;
+                while(true){
+                    x++,y++;
+                    if(check(n,m,x,y)){
+                        c+=a[x][y];
+                    }
+                    else break;
+                }
+                x=i,y=j;
+                while(true){
+                    x++,y--;
+                    if(check(n,m,x,y)){
+                        c+=a[x][y];
+                    }
+                    else break;
+                }
+                x=i,y=j;
+                while(true){
+                    x--,y++;
+                    if(check(n,m,x,y)){
+                        c+=a[x][y];
+                    }
+                    else break;
+                }
+                c+=a[i][j];
+                if(c>mx)mx=c;
+            }
+        }    
+        cout<<mx<<endl;
     }
     return 0;
 }
