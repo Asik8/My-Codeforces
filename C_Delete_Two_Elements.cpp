@@ -13,16 +13,24 @@ int main() {
     cin.tie(NULL);
     ll t;
     cin >> t;
-    while (t--) {
-        ll n,k,q,c=0,ans=0;
-        cin >> n>>k>>q;
+    while (t--){
+        ll n,s=0;
+        cin >> n;
         vector <ll> v(n);
-        for (auto& x:v) cin >>x; 
+        for (auto& x:v){
+            cin >>x;
+            s+=x;
+        }       
+        if((2*s)%n){
+            cout<<"0\n";
+            continue;
+        }
+        ll ans=0;
+        map<ll,ll>mp;
         forni{
-            if(v[i]<=q) c++;
-            else c=0;
-            if(c>=k) ans+=c-k+1;
-        }      
+            ans+= mp[2*s/n-v[i]];
+            mp[v[i]]++;
+        }
         cout<<ans<<endl;
     }
     return 0;
