@@ -16,21 +16,22 @@ int main() {
     while (t--) {
         ll n,k;
         cin >> n>>k;
+        map<ll,ll>mp;
         vector <ll> v(n);
-        for (auto& x:v) cin >>x; 
-        sort(v.begin(),v.end());
-        ll l=0,x=0;
-        while(l<n-1){
-            x=v[l];
-            v[l]=0;
-            cout<<v.back()<<endl;
-            for(int i=l+1;i<n;i++) v[i]-=x;
-            l++;
+        for (auto& x:v){
+            cin >>x;
+            mp[x]++;
+        } 
+        bool f=false;
+        forni{
+            mp[v[i]]--;
+            if(mp[v[i]-k]>0 || mp[v[i]+k]>0){
+                f=true;
+                break;
+            }
+            mp[v[i]]++;
         }  
-        for(auto c:v) cout<<c<<" ";
-        cout<<endl;
-        // cout<<v.back()<<endl;
-        // if(v.back()==k) py else pn    
+        if(f)py else pn
     }
     return 0;
 }
