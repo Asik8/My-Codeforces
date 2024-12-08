@@ -1,13 +1,1 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int main() {
-   ios::sync_with_stdio(false);
-   cin.tie(nullptr);
-   pair<string, int> student = { "dablu", 10 };
-   cout << student.first << " " << student.second << '\n';
-   student.first = "bablu";
-   for(auto[name, roll]:student)
-      cout << name << " " << roll << '\n';
-   return 0;
-}
+In the below given figure, in the case of a normal dataset ETC has 146 TP, 12 FP, 8 FN and 98 TN values. In the case of the ETC after applying smote 140 TP, 18 FP, 11 FN and 95 TN. IN case of ANOVA 153 TP, 5 FP, 4 FN and 102 TN. IN Case of Chi-Square 152 TP, 6 FP, 4 FN and 102 TN and at last for ETC RFE 151 TP, 7 FP, 3 FN and 103 TN.
