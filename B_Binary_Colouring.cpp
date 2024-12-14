@@ -12,12 +12,23 @@ int main() {
     while (t--) {
         ll n;
         cin >> n;
-        vector <ll> v;
-        while(n>0)
-        {
-            v.pb(n%2);
-            n/=2;
-        }    
+        vector <ll> v(31,0);
+        for(int i=0;i<30;i++){
+            if(1 & (n>>i)){
+                if(v[i]){
+                    v[i+1]=1;
+                    v[i]=0;
+                }
+                else if(i>0){
+                    if(v[i-1]==1){
+                        v[i-1]=-1;
+                        v[i+1]=1;
+                    }
+                    else v[i]=1;
+                }
+                else if(i==0) v[i]=1;
+            }
+        }
         cout<<v.size()<<endl;
         for(int i=0;i<v.size();i++) cout<<v[i]<<" ";
         cout<<endl;   
