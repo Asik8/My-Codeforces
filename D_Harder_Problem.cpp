@@ -17,22 +17,29 @@ int main() {
     while (t--) {
         ll n;
         cin >> n;
-        map<ll,ll>mp,tr;
-        vector <ll> v(n);
-        for (auto& x:v){
-            cin >>x;
-            mp[x]++;
-        }       
-        ll mx=1,c=0;
-        vector<ll>ans(n,0);
+        set<ll>s,ch;
+        vector<ll>v(n),ans,rem;
         forni{
-            if(tr[v[i]]==0){
-                ans[i]=v[i];
-                tr[v[i]]++;
-                
+            cin>>v[i];
+            s.insert(v[i]);
+        }       
+        for(int i=1;i<=n;i++){
+            if(s.find(i)==s.end()){
+                rem.pb(i);
             }
         }
-        forni cout<<mx<<" ";
+        ll j=0;
+        forni{
+            if(ch.find(v[i])==ch.end()){
+                ans.pb(v[i]);
+                ch.insert(v[i]);
+            }
+            else{
+                ans.pb(rem[j]);
+                j++;
+            }
+        }
+        for(auto x:ans)cout<<x<<" ";
         cout<<endl;
     }
     return 0;
