@@ -1,11 +1,21 @@
 {
     "files.associations": {
+        "*.dbclient-js": "javascript",
         "iostream": "cpp",
         "ostream": "cpp",
-        "tuple": "cpp",
         "*.tcc": "cpp",
-        "random": "cpp",
-        "iosfwd": "cpp"
-    },
-    "C_Cpp.errorSquiggles": "disabled"
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "expected": "cpp",
+        "optional": "cpp",
+        "format": "cpp",
+        "ratio": "cpp",
+        "system_error": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "regex": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp"
+    }
 }
