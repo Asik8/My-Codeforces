@@ -19,53 +19,27 @@ int main() {
         string s;
         cin>>n>>m>>k;
         vector <ll> a(m),b(k);
-        map<ll,ll>mp1,mp2,mp3;
-        for (auto& x:a){
-            cin >>x;
-            mp1[x]++;
-        }
+        map<ll,ll>mp;
+        set<ll>st,st2;
+        for (auto& x:a) cin >>x;
         for (auto& x:b){
             cin >>x;
-            mp2[x]++;
+            st2.insert(x);
         }
-        for(int i=1;i<=n;i++){
-            mp3[i]++;
-        }
-        if(n>k && n>m){
-            f(i,0,m) cout<<0;
-            cout<<endl;
-            continue;
-        }
-        ll l=0;
-        forni{
-            if(mp1[i+1]>0 && mp2[i+1]==0) l++;
-            if(mp1[i+1]==0 && mp2[i+1]>0) l++;
-        }      
-        if(l>1){
-            f(i,0,m) cout<<0;
-            cout<<endl;
-            continue;
-        }
-        else if(l==0){
-            f(i,0,m) cout<<1;
-            cout<<endl;
-            continue;
-        }
-        else{
-            ll mis;
-            for(int i=0;i<m;i++){
-                if(mp2[a[i]]==0){
-                    mis=a[i];
-                    break;
-                }
+        f(i,1,n+1) st.insert(i);
+        for(int i=0;i<m;i++){
+            st.erase(a[i]);
+            bool f=false;
+            if(st2.find(a[i]) != st2.end()){
+                f= true;
+                st2.erase(a[i]);
             }
-            forni{
-                ll x=i+1;
-                if(x!=mis) s+='0';
-                else s+='1';
-            }
-            co(s)
+            if(st == st2) s+='1';
+            else s+='0';
+            st.insert(a[i]);
+            if(f) st2.insert(a[i]);
         }
+        co(s)
     }
     return 0;
 }
