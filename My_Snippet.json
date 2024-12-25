@@ -1,6 +1,6 @@
 {
   "LCM": {
-  "prefix": "lcm",
+  "prefix": "clcm",
   "body": [
     "ll LCM(ll a,ll b){",
     "    return (a*(b/__gcd(a,b)));",
@@ -9,7 +9,7 @@
   "description": ""
 },
   "Primes": {
-  "prefix": "prime",
+  "prefix": "cprime",
   "body": [
     "bool isPrime(ll n){",
     "    if(n==1) return false;",
@@ -24,7 +24,7 @@
   "description": ""
 },
   "divisors": {
-  "prefix": "divisors",
+  "prefix": "cdivisor",
   "body": [
     "vector<ll>divisors(ll n){",
     "    vector<ll>v;",
