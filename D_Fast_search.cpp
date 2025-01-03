@@ -19,30 +19,27 @@ void asikM(){
     sort(v.begin(),v.end());
     cin>>q;
     while(q--){
-        ll x,y,lb,rb,m,l=0,r=n-1;
+        ll x,y,lb=-1,rb=-1,m,l=0,r=n-1;
         cin>>x>>y;
-        bool f= false;
         while(l<=r){
             m=(l+r)/2;
-            if(v[m]>=x && v[m]<y){
-                f=true;
-                lb=m+1;
+            if(v[m]>=x){
+                lb=m;
                 r=m-1;
             }
-            else if(v[m]>=x && v[m]>=y) r=m-1;
             else l=m+1;
         }
         l=0,r=n-1;
         while(l<=r){
             m=(l+r)/2;
             if(v[m]<=y){
-                rb=m+1;
+                rb=m;
                 l=m+1;
             }
             else r=m-1;
         }
-        if(f)cout<<(rb-lb+1)<<" ";
-        else cout<<(0)<<" ";
+        if(lb==-1||rb==-1 || lb>rb) cout<<0<<" ";
+        else cout<<(rb-lb+1)<<" ";
     }
 }
 
