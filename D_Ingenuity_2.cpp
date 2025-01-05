@@ -11,62 +11,44 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-void asikM(){
-    ll n,x=0,y=0;
-    cin >> n;
-    vec(char) c(n,'R'); 
-    string s;
-    cin>>s;
-    for(auto l:s){
-        if(l=='N') y++;
-        if(l=='S') y--;
-        if(l=='E') x++;
-        if(l=='W') x--;
-    }
-    if((x%2)!=0 || (y%2)!=0){
-        pn
-        return;
-    }
-    if(x==0 && y==0){
-        if(n==2){
-            pn
-            return;
-        }
-        int f1=s.find_first_of("NSWE");
-        int f2=s.find_last_of("NSWE");
-        c[f1]=c[f2]='H';
-    }
-    else{
-        forni{
-            if(s[i]=='N' && y>0){
-                y-=2;
-                c[i]='H';
-            }
-            if(s[i]=='S' && y<0){
-                y+=2;
-                c[i]='H';
-            }
-            if(s[i]=='E' && x>0){
-                x-=2;
-                c[i]='H';
-            }
-            if(s[i]=='W' && x<0){
-                x+=2;
-                c[i]='H';
-            }
-        }
-    }
-    for(auto l:c) cout<<l;
-    cout<<endl;
-}
-
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     ll t;
     cin >> t;
     while (t--) {
-        asikM();      
+        ll n,x=0,y=0;
+        cin >> n;
+        string s;
+        cin>>s;
+        set<char>st;
+        for(auto l:s){
+            st.insert(l);
+            if(l=='N') y++;
+            if(l=='S') y--;
+            if(l=='E') x++;
+            if(l=='W') x--;
+        }
+        map<char,ll> mp,m;
+        if(x==0 && y==0 && n==2)pn
+        else if(!(x%2) && !(y%2)){
+            forni mp[s[i]]++;
+            if(n==4 && st.size()==4){
+                forni{
+                    if(s[i]=='W' || s[i]=='E') cout<<"H";
+                    else cout<<"R";
+                }
+                cout<<endl;
+                continue;
+            }
+            forni{
+                m[s[i]]++;
+                if(m[s[i]]<=mp[s[i]]/2) cout<<"H";
+                else cout<<"R";
+            }
+            cout<<endl;
+        }
+        else pn       
     }
     return 0;
 }
