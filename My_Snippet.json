@@ -68,9 +68,8 @@
     "    cin.tie(NULL);",
     "    ll t;",
     "    cin >> t;",
-    "    while (t--) {",
-    "        asikM();      ",
-    "    }",
+    "    while (t--)",
+    "    asikM();      ",
     "    return 0;",
     "}"
   ],
