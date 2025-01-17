@@ -10,7 +10,7 @@ using namespace std;
 #define forni for(int i=0;i<n;i++)
 #define sz(x) x.size()
 #define vec vector<ll>
-const int N=1e6+20;
+const ll N=1e7+20;
 vector<int>vis(N+1,1);
 
 void asikM(){
@@ -21,7 +21,7 @@ void asikM(){
         cin >> n;
         if(n<4){
             pn
-            return;
+            continue;
         }
         ll s=sqrt(n);
         if(s*s==n && vis[s]) py else pn
@@ -34,7 +34,7 @@ int main() {
     vis[0]=0;
     vis[1]=0;
     for(ll i=2;i<=N;i++){
-        if(vis[i]==1){
+        if(vis[i]){
             for(ll j=i+i;j<=N;j+=i){
                 vis[j]=0;
             }
