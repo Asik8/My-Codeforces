@@ -12,19 +12,28 @@ using namespace std;
 #define vec vector<ll>
 
 void asikM(){
-    ll n;
+    ll n,c=0;
     cin >> n;
-    vector <ll> v(n);
-    for (auto& x:v) cin >>x; 
+    if(n%2){
+        c=(n-3)/2;
+        co(c+1)
+        for(int i=0;i<c;i++) cout<<2<<" ";
+        co(3)
+    }
+    else{
+        c=n/2;
+        co(c)
+        f(i,0,c) cout<<2<<" ";
+        cout<<endl;
+    }
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;
-    cin >> t;
-    while (t--) {
-        asikM();      
-    }
+    // ll t;
+    // cin >> t;
+    // while (t--)
+    asikM();      
     return 0;
 }
