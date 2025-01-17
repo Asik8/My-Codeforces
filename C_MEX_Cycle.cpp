@@ -15,7 +15,32 @@ void asikM(){
     ll n,x,y;
     cin>>n>>x>>y;
     vector <ll> v(n);
-    for (auto& x:v) cin >>x; 
+    forni v[i]=i+1;
+    auto ch_mex=[&](set<ll> s){
+        ll c=0;
+        while(s.count(c)) c++;
+        return c;
+    };
+    forni{
+        set<ll>s;
+        if(i==x-1) s.insert(v[y-1]);
+        else if(i==y-1) s.insert(v[x-1]);
+        if(i==0){
+            s.insert(v[n-1]);
+            s.insert(v[i+1]);
+        }
+        else if(i==n-1){
+            s.insert(v[i-1]);
+            s.insert(v[0]);
+        }
+        else{
+            s.insert(v[i-1]);
+            s.insert(v[i+1]);
+        }
+        v[i]=ch_mex(s);
+    }
+    for(auto q:v) cout<<q<<" ";
+    cout<<endl;
 }
 
 int main() {
