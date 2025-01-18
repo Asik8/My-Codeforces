@@ -1,40 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-void solve() {
-    int n;
+#define ll long long
+#define pb push_back
+#define py cout<<"YES\n";
+#define pn cout<<"NO\n";
+#define co(x1) cout<<x1<<"\n";
+#define f(x1,x2,x3) for(int x1=x2;x1<x3;x1++)
+#define fr(x1,x2,x3) for(int x1=x2;x1>=x3;x1--)
+#define forni for(int i=0;i<n;i++)
+#define sz(x) x.size()
+#define vec vector<ll>
+const int N=1e3+5;
+string a[N];
+void asikM(){
+    ll n;
     cin >> n;
-    vector<pair<int, int>> degrees; // (degree, index)
-    
-    // Read adjacency matrix and calculate degrees
-    for (int i = 0; i < n; ++i) {
-        string row;
-        cin >> row;
-        int degree = count(row.begin(), row.end(), '1'); // Count 1's in the row
-        degrees.push_back({degree, i});
+    forni cin>>a[i];
+    vec p(n);
+    for(int i=1;i<=n;i++){
+        ll c=0;
+        for(int j=0;j<i-1;j++){
+            c+=(a[i-1][j]-'0');
+        }
+        for(int j=i;j<n;j++){
+            c+=!(a[i-1][j]-'0');
+        }
+        p[c]=i;
     }
-    
-    // Sort nodes by degree
-    sort(degrees.begin(), degrees.end());
-    
-    // Reconstruct permutation
-    vector<int> permutation(n);
-    for (int i = 0; i < n; ++i) {
-        permutation[degrees[i].second] = i + 1; // Assign values from 1 to n
-    }
-    
-    // Output the permutation
-    for (int val : permutation) {
-        cout << val << " ";
-    }
-    cout << "\n";
+    for(auto x:p) cout<<x<<" ";
+    cout<<endl;
 }
 
 int main() {
-    int t;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t;
     cin >> t;
-    while (t--) {
-        solve();
-    }
+    while (t--)
+    asikM();      
     return 0;
 }
