@@ -10,12 +10,31 @@ using namespace std;
 #define forni for(int i=0;i<n;i++)
 #define sz(x) x.size()
 #define vec vector<ll>
+vec primes={2,3,5,7,11,13,17,19,23,29,31};
 
 void asikM(){
     ll n;
     cin >> n;
     vector <ll> v(n);
     for (auto& x:v) cin >>x; 
+    map<ll,vec>mp;
+    forni{
+        f(j,0,11){
+            if(!(v[i]%primes[j])){
+                mp[primes[j]].pb(i);
+                break;
+            }
+        }
+    }
+    vec ans(n);
+    ll c=1;
+    for(auto [x,y]:mp){
+        for(auto l:y) ans[l]=c;
+        c++;
+    }
+    co(sz(mp))
+    for(auto x:ans) cout<<x<<" ";
+    cout<<endl;
 }
 
 int main() {
