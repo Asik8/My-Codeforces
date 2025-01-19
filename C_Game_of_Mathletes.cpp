@@ -19,17 +19,17 @@ void asikM(){
     sort(v.begin(),v.end());
     ll l=0,r=n-1;
     while(v[r]>=k) r--;
-    ll c=0;
+    ll cnt=0;
     while(l<r){
         if(v[r]+v[l]==k){
-            c++;
+            cnt++;
             r--;
             l++;
         }
         else if (v[r]+v[l]<k) l++;
         else r--;
     }
-    co(c)
+    co(cnt)
 }
 
 int main() {
