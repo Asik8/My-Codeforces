@@ -16,18 +16,16 @@ void asikM(){
     cin >> n;
     vector <ll> v(n);
     for (auto& x:v) cin >>x; 
-    if(v[0]>v[1]){
-        pn
-        return;
+    sort(v.begin(),v.end());
+    v.resize(unique(v.begin(),v.end())-v.begin());
+
+    ll ans=0,r=0,l=0;
+    while(r<sz(v)){
+        while(v[r]-v[l]>=n) l++;
+        ans=max(ans,r-l+1);
+        r++;
     }
-    for(int i=0;i<n-1;i++){
-        if(v[i]>v[i+1]){
-            pn
-            return;
-        }
-        else v[i+1]-=v[i];
-    }
-    py
+    co(ans)
 }
 
 int main() {
