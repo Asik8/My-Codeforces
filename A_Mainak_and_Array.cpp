@@ -12,23 +12,15 @@ using namespace std;
 #define vec vector<ll>
 
 void asikM(){
-    ll n,mn=INT_MAX,mx=INT_MIN;
+    ll n;
     cin >> n;
     vector <ll> v(n);
-    map<ll,vec>mp;
-    for (auto& x:v){
-        cin >>x; 
-        mn=min(mn,x);
-        mx=max(mx,x);
-    }
-    if(n==1){
-        co(0)
-        return;
-    }
-    forni{
-        if(v[i]==mn) mp[mn].pb(i);
-        if(v[i]==mx) mp[mx].pb(i);
-    }
+    for (auto& x:v) cin >>x; 
+    ll ans=v.back()-v[0];
+    f(i,0,n-1) ans=max(ans,v[i]-v[i+1]);
+    f(i,0,n-1) ans=max(ans,v[n-1]-v[i]);
+    f(i,1,n) ans=max(ans,v[i]-v[0]);
+    co(ans)
 }
 
 int main() {
