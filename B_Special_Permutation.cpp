@@ -18,13 +18,13 @@ void asikM(){
     ll n,a,b;
     cin >> n>>a>>b;
     vector <ll> v(n);
-    for (auto& x:v) cin >>x; 
+    vector<bool> ch(n+1,false);
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t;
+    ll t=1;
     cin >> t;
     while (t--)
     asikM();      
