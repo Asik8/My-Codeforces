@@ -14,7 +14,7 @@ using namespace std;
 #define all(x1) x1.begin(),x1.end()
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
-#define vec vector<ll>
+#define vec(x) vector<x>
 
 void asikM(){
     ll n,a,b;
