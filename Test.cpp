@@ -1,26 +1,5 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-int main()
-{
-  map<int, int> mp;
-  mp[1]++;
-  mp[2]++;
-  mp[3]++;
-  mp[1]++;
-  mp[2]++;
-  mp[3]++;
-  mp[4]++;
-  mp[2]++;
-  mp[3]++;
-  mp[4]++;
-  mp[4]++;
-  mp[4]++; 
-  mp[4]++;
-  mp[1]++;
-  mp[2]++;
-  mp[3]++;
-  mp[4]++;
-  for (auto [x, y] : mp)
-    cout << x << " " << y << endl;
-}
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+template <typename T> using pbds_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+template <typename T> using pbds_mset = tree<T, null_type, less_equal<T>, rb_tree_tag, tree_order_statistics_node_update>;
