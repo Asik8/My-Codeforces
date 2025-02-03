@@ -37,10 +37,12 @@ void asikM(){
         co(++c)
     }
     else{
-        bool f=false;
+        bool f=true;
         for(int i=1;i<(n-k+2);i++){
-            if(v[i]!=1)f=false;
-            else f=true;
+            if(v[i]!=1){
+                f=false;
+                break;
+            }
         }
         co((f?2:1))
     }
