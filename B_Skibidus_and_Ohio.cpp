@@ -23,13 +23,14 @@ using namespace std;
 void asikM(){
     string s;
     cin>>s;
-    ll n=sz(s);
-    stack<ll>st;
-    forni{
-        if(!st.empty() && st.top()==s[i] && sz(st)>1) st.pop();
-        else if(s[i]!=st.top())st.push(s[i]);
+    ll n=sz(s),l=0;
+    f(i,0,n-1){
+        if(s[i]==s[i+1]){
+            co(1)
+            return;
+        }
     }
-    co(sz(st))
+    co(n)
 }
 
 int main() {
