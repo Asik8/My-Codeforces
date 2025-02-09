@@ -21,15 +21,33 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    string s;
-    cin>>s;
-    ll n=sz(s);
-    stack<ll>st;
-    forni{
-        if(!st.empty() && st.top()==s[i] && sz(st)>1) st.pop();
-        else if(s[i]!=st.top())st.push(s[i]);
+    ll n,m;
+    cin >> n>>m;
+    vector <ll> a(n),b(n);
+    for (auto& x:a) cin >>x; 
+    for (auto& x:b) cin >>x; 
+    ll c=0;
+    f(i,1,n){
+        if(a[i]<a[i-1]) c++;
     }
-    co(sz(st))
+    if(c>0){
+        pn
+        return;
+    }
+    f(i,1,n){
+        if(a[i]<a[i-1]){
+            a[i-1]=b[0]-a[i-1];
+            break;
+        }
+    }
+    bool f= true;
+    f(i,0,n-1){
+        if(a[i]>a[i+1]){
+            f=false;
+            break;
+        }
+    }
+    if(f) py else pn
 }
 
 int main() {
