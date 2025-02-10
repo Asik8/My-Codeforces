@@ -23,14 +23,25 @@ using namespace std;
 void asikM(){
     ll n,m;
     cin >> n>>m;
-    vector <ll> a(n),b(n);
+    vector <ll> a(n),b(m);
     for (auto& x:a) cin >>x; 
     for (auto& x:b) cin >>x; 
-    ll c=0;
-    for(int i=0;i<n-1;i++){
-        if(a[i]>a[i+1]) c++;
+    sort(all(b));
+    ll prev=LLONG_MIN;
+    forni{
+        auto it=lower_bound(all(b),a[i]+prev);
+        if(it != b.end()){
+            ll c= *it;
+            if(a[i]<prev) a[i]=c-a[i];
+            else a[i]=min(a[i],c-a[i]);
+        }
+        if(a[i]<prev){
+            pn
+            return;
+        }
+        prev=a[i];
     }
-    co(c)
+    py
 }
 
 int main() {
