@@ -1,43 +1,43 @@
 #include <bits/stdc++.h>
+#define need_speed ios_base::sync_with_stdio(0), cin.tie(0)
 using namespace std;
-#define ll long long
-#define pb push_back
-#define pbs insert
-#define pi pair<ll,ll>
-#define py cout<<"YES\n";
-#define pys cout<<"Yes\n";
-#define pn cout<<"NO\n";
-#define pns cout<<"No\n";
-#define co(x1) cout<<x1<<"\n";
-#define ct(x1) cout<<x1<<" ";
-#define elc cout<<"\n";
-#define el "\n";
-#define fl(x1,x2,x3) for(int x1=x2;x1<x3;x1++)
-#define flr(x1,x2,x3) for(int x1=x2;x1>=x3;x1--)
-#define flx(x1) for(auto x:x1) ct(x) elc
-#define forni for(int i=0;i<n;i++)
-#define all(x1) x1.begin(),x1.end()
-#define allr(x1) x1.rbegin(),x1.rend()
-#define sz(x) x.size()
-#define vec(x) vector<x>
 
-
-void asikM(){
-    vector <ll> v;
-    v.pb(1); 
-    v.pb(2); 
-    v.pb(3); 
-    v.pb(4); 
-    v.pb(5); 
-    flx(v);
-}
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    ll t=1;
-    // cin >> t;
+int main(void)
+{
+    need_speed;
+    int t;
+    cin >> t;
     while (t--)
-    asikM();      
-    return 0;
+    {
+        string s;
+        cin >> s;
+        stack<char> st;
+        bool isBalanced = true;  
+        for (auto x : s)
+        {
+            if (x == '{' || x == '(' || x == '[')
+                st.push(x);  
+            else if (x == '}' || x == ')' || x == ']')
+            {
+                if (st.empty()) 
+                {
+                    isBalanced = false;  
+                    break;
+                }
+                if (x == ')' && st.top() == '(')
+                    st.pop(); 
+                else if (x == '}' && st.top() == '{')
+                    st.pop(); 
+                else if (x == ']' && st.top() == '[')
+                    st.pop(); 
+                else
+                {
+                    isBalanced = false;  
+                    break;
+                }
+            }
+        }
+        if (!st.empty()) isBalanced = false;
+        cout << (isBalanced ? "Balanced" : "Not Balanced") << endl;
+    }
 }
