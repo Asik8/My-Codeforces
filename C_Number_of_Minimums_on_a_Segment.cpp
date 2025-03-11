@@ -21,37 +21,53 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
+struct node{
+    ll mn,count;
+};
+
 const int N=1e5+9;
-ll a[N],t[4*N];
+ll a[N];
+node t[4*N];
+
+node merge(node l,node r){
+    node ans;
+    ans.mn=min(l.mn,r.mn);
+    ans.count=0;
+    if(l.mn == ans.mn) ans.count+=l.count;
+    if(r.mn == ans.mn) ans.count+=r.count;
+    return ans;
+}
 
 void build(int n,int b,int e){
     if(b==e){
-        t[n]=a[b];
+        t[n].mn=a[b];
+        t[n].count=1;
         return;
     }
     int m=(b+e)/2,l=n*2,r=(n*2)+1;
     build(l,b,m);
     build(r,m+1,e);
-    t[n]=min(t[l],t[r]);
+    t[n]=merge(t[l],t[r]);
 }
 
 void update(int n,int b,int e,int i,int v){
     if(i<b || i>e) return;
     if(b==e){
-        t[n]=v;
+        t[n].mn=v;
+        t[n].count=1;
         return;
     }
     int m=(b+e)/2,l=(n*2),r=(n*2)+1;
     update(l,b,m,i,v);
     update(r,m+1,e,i,v);
-    t[n]=min(t[l],t[r]);
+    t[n]=merge(t[l],t[r]);
 }
 
-ll query(int n,int b,int e,int i, int j){
-    if(e<i || b>j) return LLONG_MAX;
+node query(int n,int b,int e,int i, int j){
+    if(e<i || b>j) return {LLONG_MAX,0};
     if(b>=i && e<=j) return t[n];
     int m=(b+e)/2,l=(n*2),r=(n*2)+1;
-    return min(query(l,b,m,i,j),query(r,m+1,e,i,j));
+    return merge(query(l,b,m,i,j),query(r,m+1,e,i,j));
 }
 
 void asikM(){
@@ -72,8 +88,8 @@ void asikM(){
             int l,r;
             cin>>l>>r;
             l++;
-            ll ans=query(1,1,n,l,r);
-            co(ans)
+            node ans=query(1,1,n,l,r);
+            cout<<ans.mn<<" "<<ans.count<<el
         }
     }
 }
