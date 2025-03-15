@@ -2,20 +2,21 @@
 using namespace std;
 
 const int maxN = 1e5 + 9;
-int a[maxN];
+long long a[maxN];
 
 struct node {
-   int gcd; 
+   long long gcd; 
 };
 node t[maxN * 4];
-int computeGCD(int a, int b) {
-   return b == 0 ? a : computeGCD(b, a % b);
-}
+
 node merge(node l, node r) {
    node ans;
-   ans.gcd = computeGCD(l.gcd, r.gcd); 
+   if (l.gcd == 0) return r;
+   if (r.gcd == 0) return l;
+   ans.gcd = __gcd(l.gcd, r.gcd); 
    return ans;
 }
+
 void build(int n, int b, int e) {
    if (b == e) {
       t[n].gcd = a[b];
@@ -26,25 +27,20 @@ void build(int n, int b, int e) {
    build(r, mid + 1, e);
    t[n] = merge(t[l], t[r]); 
 }
+
 node query(int n, int b, int e, int i, int j) {
-   if (e < i || j < b) {
-      return {0}; 
-   }
-   if (b >= i && e <= j) {
-      return t[n]; 
-   }
+   if (e < i || j < b) return {0}; 
+   if (b >= i && e <= j) return t[n]; 
    int mid = (b + e) / 2, l = 2 * n, r = 2 * n + 1;
-   return merge(query(l, b, mid, i, j), query(r, mid + 1, e, i, j)); // Merge results from left and right children
+   return merge(query(l, b, mid, i, j), query(r, mid + 1, e, i, j));
 }
+
 int shortestGoodSegment(int n) {
    build(1, 1, n);
-
    if (query(1, 1, n, 1, n).gcd != 1) {
       return -1;
    }
-
    int left = 1, minLength = n;
-
    for (int right = 1; right <= n; right++) {
       while (left <= right && query(1, 1, n, left, right).gcd == 1) {
          minLength = min(minLength, right - left + 1);
