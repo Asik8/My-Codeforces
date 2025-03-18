@@ -21,34 +21,35 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-ll countValidWays(int n, int m, vector<int>& a) {
-    sort(a.begin(), a.end());
-    ll total = 0;
-    for (int k = 1; k < n; ++k){
-        int left = k;
-        int right = n - k;
-        int max_val = max(left, right);
-        int cnt1 = a.end() - lower_bound(a.begin(), a.end(), left);
-        int cnt2 = a.end() - lower_bound(a.begin(), a.end(), right);
-        int same = a.end() - lower_bound(a.begin(), a.end(), max_val);
-        total += (ll)cnt1 * cnt2 - same;
+void asikM(){
+    ll n,m;
+    cin >> n>>m;
+    vector <ll> v(m);
+    for (auto& x:v) cin >>x; 
+    forni v[i]=min(v[i],n-1);
+    sort(all(v));
+    ll p=m-1,ans=0,s=0;
+    fl(i,0,m){
+        while(p>=0 && v[p]+v[i]>=n){
+            s+=v[p];
+            p--;
+        }
+        ans+=s+(m-p-1)*(v[i]-n+1);
     }
-    return total;
+    fl(i,0,m){
+        if(2*v[i]>=n){
+            ans-=2*v[i]-n+1;
+        }
+    }
+    co(ans)
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr);
-    int t;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t=1;
     cin >> t;
-    while (t--) {
-        int n, m;
-        cin >> n >> m;
-        vector<int> a(m);
-        for (int i = 0; i < m; ++i) {
-            cin >> a[i];
-        }
-        cout << countValidWays(n, m, a) << "\n";
-    }
+    while (t--)
+    asikM();      
     return 0;
 }
