@@ -26,7 +26,7 @@ void asikM(){
     cin >> n>>m;
     vector <ll> v(m);
     for (auto& x:v) cin >>x; 
-    forni v[i]=min(v[i],n-1);
+    fl(i,0,m) v[i]=min(v[i],n-1);
     sort(all(v));
     ll p=m-1,ans=0,s=0;
     fl(i,0,m){
