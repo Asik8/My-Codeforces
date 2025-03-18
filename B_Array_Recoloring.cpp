@@ -20,42 +20,21 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-ll n,k;
-bool ch(int i){
-    return(i>=0 && i<n);
-}
 
 void asikM(){
-    cin >> n>>k;
-    vector <pi> v;
-    vec(bool) in(n+5,false);
-    forni{
-        ll x;
-        cin>>x;
-        v.pb({x,i});
-    }
-    ll s=0;
-    sort(allr(v));
-    // for(auto [x,y]:v){
-    //     cout<<x<<" "<<y<<el
-    // }
-    vec(ll) idxs;
-    fl(i,0,k){
-        s+=v[i].first;
-        in[v[i].second]=true;
-        idxs.pb(v[i].second);
-    }
-    for(auto x:idxs){
-        if(ch(x-1) && !in[x-1]){
-            idxs.pb(x-1);
-            in[x-1]=true;
-        }
-        if(ch(x+1) && !in[x+1]){
-            idxs.pb(x+1);
-            in[x+1]=true;
+    ll n,k,s=0;
+    cin >>n>>k;
+    vector <ll> v(n);
+    for(auto &x:v) cin>>x;
+    if(k!=1){
+        sort(allr(v));
+        fl(i,0,k+1) s+=v[i];
+    } else{
+        s=v[0]+v.back();
+        fl(i,1,n-1){
+            s=max(s,v[i]+max(v[0],v[n-1]));
         }
     }
-    flx(idxs)
     co(s)
 }
 
