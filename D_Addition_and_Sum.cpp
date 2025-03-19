@@ -26,7 +26,7 @@ ll a[N],t[4*N],lazy[4*N];
 
 void push(ll n,ll b, ll e){
     if(lazy[n]==0) return;
-    t[n]+=lazy[n];
+    t[n]+=((e-b+1)*lazy[n]);
     if(b!=e){
         ll l=(2*n),r=(2*n)+1;
         lazy[l]+=lazy[n];
@@ -43,7 +43,7 @@ void build(ll n,ll b,ll e){
     ll m=(b+e)/2,l=n*2,r=(n*2)+1;
     build(l,b,m);
     build(r,m+1,e);
-    t[n]=min(t[l],t[r]);
+    t[n]=t[l]+t[r];
 }
 
 void update(ll n,ll b,ll e,ll i,ll j,ll v){
@@ -57,15 +57,15 @@ void update(ll n,ll b,ll e,ll i,ll j,ll v){
     ll m=(b+e)/2,l=(n*2),r=(n*2)+1;
     update(l,b,m,i,j,v);
     update(r,m+1,e,i,j,v);
-    t[n]=min(t[l],t[r]);
+    t[n]=t[l]+t[r];
 }
 
 ll query(ll n,ll b,ll e,ll i, ll j){
     push(n,b,e);
-    if(e<i || b>j) return LLONG_MAX;
+    if(e<i || b>j) return 0;
     if(b>=i && e<=j) return t[n];
     ll m=(b+e)/2,l=(n*2),r=(n*2)+1;
-    return min(query(l,b,m,i,j),query(r,m+1,e,i,j));
+    return query(l,b,m,i,j)+query(r,m+1,e,i,j);
 }
 
 void asikM(){
@@ -81,10 +81,10 @@ void asikM(){
             l++;
             update(1,1,n,l,r,v);
         } else{
-            ll l;
-            cin>>l;
+            ll l,r;
+            cin>>l>>r;
             l++;
-            co(query(1,1,n,l,l))
+            co(query(1,1,n,l,r))
         }
     }
 }
