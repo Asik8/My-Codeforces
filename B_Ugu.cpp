@@ -37,13 +37,10 @@ void asikM(){
         co(0)
         return;
     }
-    ll c=0,in1=-1,c1=0;
-    bool f= false;
+    ll c=0,c1=0;
     fl(i,in,n-1){
         if(s[i]=='0' && s[i+1]=='1'){
-            f=true;
             c++;
-            in1=i+1;
         }
     }
     if(s.back()=='0') c1=1;
