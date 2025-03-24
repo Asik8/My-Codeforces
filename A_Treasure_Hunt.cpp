@@ -24,13 +24,9 @@ using namespace std;
 void asikM(){
     ll x,y,a;
     cin>>x>>y>>a;
-    a*=5;
-    co(a)
     ll s=x+y;
-    co(s)
     a%=s;
-    co(a)
-    if(a<x && a>0) pn else py
+    if(a<x) pn else py
 }
 
 int main() {
