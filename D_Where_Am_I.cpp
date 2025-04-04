@@ -22,8 +22,8 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    double a=36.104300,b=-115.172835;
-    cout << fixed << setprecision(6) << a  << " " << b << endl;
+    double a=36.104300,x=-115.172835;
+    cout << fixed << setprecision(6) << a  << " " << x << endl;
 }
 
 int main() {
