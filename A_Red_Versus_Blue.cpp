@@ -24,28 +24,38 @@ using namespace std;
 void asikM(){
     ll n,r,b;
     cin >> n>>r>>b;
-    // string s;
     ll d=0;
-    if(b==1) d=(r+1)/2;
-    else d=r/b;
-    ll nd=d;
-    fl(i,1,nd){
+    string s;
+    fl(i,1,100){
         ll x=i*b;
         ll y=r-x;
-        if(y<=b) d=min(d,(ll)i);
-    }
-    if(r==((b+1)*(b+1))) d=b+1;
-    // ll d=r/(b+1);
-    ll t=(r+(d-1))/d;
-    while(t--){
-        fl(i,0,min(r,d)) cout<<'R';
-        r-=d;
-        if(b){
-            cout<<'B';
-            b--;
+        if(y<=i){
+            d=i;
+            break;
         }
     }
-    elc
+    // co(d)
+    fl(i,0,d) s+='R';
+    r-=d;
+    // cout<<d<<" "<<b<<el
+    if(!(r%b)) d=r/b;
+    while(r || b){
+        if(b>1) d=r/b;
+        if(b){
+            s+='B';
+            b--;
+        }
+        if(r){
+            ll x=min(r,d);
+            fl(i,0,x) s+='R';
+            r-=x;
+        }
+    }
+    co(s)
+    // co(sz(s))
+    // co(count(all(s),'R'))
+    // co(count(all(s),'B'))
+    // elc
 }
 
 int main() {
