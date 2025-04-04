@@ -26,32 +26,24 @@ void asikM(){
     cin >> n>>k>>m;
     vector <ll> v(n);
     for(auto &x:v) cin>>x;
-    fl(i,0,n){
-        s1+=v[i];
-        in=i+1;
-        if(s1>=m){
-            break;
-        }
-    }
+    s1=accumulate(all(v),0LL);
     if(s1*k<m){
         co(0)
         return;
-    } if(s1>=m){
-        ll rm=n*k;
-        co((rm-in)+1)
-        return;
     }
-    ll d = (m-1)/s1;
-    ll remaining = m - (d * s1);
-    ll cnt = (d * n);
-    ll s = 0;
-    for (ll i = 0; i < n; i++){
-        s += v[i];
-        cnt++;
-        if (s >= remaining) break;
+    ll l=m%s1,r=m/s1; 
+    if(l==0){
+        r--;
+        l=s1;
     }
-    ll total = n * k;
-    cout << ((total - cnt)+2 ) << el;
+    // cout<<l<<" "<<r<<" "<<n*k<<" "<<r*n<<el
+    ll ans=n*k-(r*n),c=0;
+    for(int i=n-1;i>=0;i--){
+        c+=v[i];
+        if(c>=l) break;
+        ans--;
+    }
+    co(ans)
 }
 
 int main() {
