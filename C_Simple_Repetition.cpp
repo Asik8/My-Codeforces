@@ -21,23 +21,30 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-bool isPrime(ll n){
-    if(n==1) return false;
-    for(ll i=2;i*i<=n;i++){
-        if(!(n%i)){
+bool is_prime(long long n) {
+    if (n < 2)
+        return false;
+    if (n == 2)
+        return true;
+    if (n % 2 == 0)
+        return false;
+    long long max_divisor = sqrt(n) + 1;
+    for (long long d = 3; d <= max_divisor; d += 2) {
+        if (n % d == 0)
             return false;
-        }
     }
     return true;
 }
 
-
-
 void asikM(){
     ll n,k;
     cin>>n>>k;
-    if(isPrime(n) && k==1)py
-    else pn
+    if(k==1){
+        if(is_prime(n)) py
+        else pn 
+    } else {
+        if(n==1 && k==2) py else pn
+    }
 }
 
 int main() {
