@@ -20,39 +20,13 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-ll LCM(ll a,ll b){
-    return (a*(b/__gcd(a,b)));
-}
 
 void asikM(){
     ll n;
     cin >> n;
-    vector <ll> o,e;
-    forni{
-        ll x;
-        cin >>x; 
-        if(x&1) o.pb(x);
-        else e.pb(x);
-    }
-    ll mx=INT_MIN,mx2=INT_MIN;
-    if(sz(o)>1){
-        ll a = o.empty() ? 0 : *max_element(all(o));
-        ll b = o.empty() ? 0 : *min_element(all(o));
-        fl(i,0,LCM(a,b)+1){
-            ll g=__gcd(a+i,b+i);
-            mx=max(mx,g);
-        }
-    }
-    if(sz(e)>1){
-        ll c = e.empty() ? 0 : *max_element(all(e));
-        ll d = e.empty() ? 0 : *min_element(all(e));
-        fl(i,0,LCM(c,d)+1){
-            ll g=__gcd(c+i,d+i);
-            mx2=max(mx2,g);
-        }
-    }
-    mx=max(mx,max(0LL,mx2));
-    co(mx)
+    vector <ll> v(n);
+    for (auto& x:v) cin >>x; 
+    co(*max_element(all(v))-*min_element(all(v)))
 }
 
 int main() {
