@@ -1,31 +1,47 @@
-#include <iostream>
-#include <vector>
-#include <string>
-
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+#define pb push_back
+#define pbs insert
+#define pi pair<ll,ll>
+#define py cout<<"YES\n";
+#define pys cout<<"Yes\n";
+#define pn cout<<"NO\n";
+#define pns cout<<"No\n";
+#define co(x1) cout<<x1<<"\n";
+#define ct(x1) cout<<x1<<" ";
+#define elc cout<<"\n";
+#define el "\n";
+#define fl(x1,x2,x3) for(int x1=x2;x1<x3;x1++)
+#define flr(x1,x2,x3) for(int x1=x2;x1>=x3;x1--)
+#define flx(x1) for(auto x:x1) ct(x) elc
+#define forni for(int i=0;i<n;i++)
+#define all(x1) x1.begin(),x1.end()
+#define allr(x1) x1.rbegin(),x1.rend()
+#define sz(x) x.size()
+#define vec(x) vector<x>
+
+void asikM(){
+    string s;
+    cin>>s;
+    ll in=-1,d=0;
+    flr(i,sz(s)-1,0){
+        if(s[i]=='0') d++;
+        else{
+            in=i;
+            break;
+        }
+    }
+    fl(i,0,in) if(s[i]!='0') d++;
+    cout<<d<<el
+}
 
 int main() {
-    int t;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t=1;
     cin >> t;
-    while (t--) {
-        string s;
-        cin >> s;
-        int n = s.size();
-        vector<int> prefix(n + 1, 0);
-        for (int i = 0; i < n; ++i) {
-            prefix[i + 1] = prefix[i] + (s[i] == '0' ? 1 : 0);
-        }
-        int mx = 1;
-        for (int i = 0; i < n; ++i) {
-            if (s[i] != '0') {
-                int z = prefix[i];
-                int c = z + 1;
-                if (c > mx) {
-                    mx = c;
-                }
-            }
-        }
-        cout << n - mx << endl;
-    }
+    while (t--)
+    asikM();      
     return 0;
 }
