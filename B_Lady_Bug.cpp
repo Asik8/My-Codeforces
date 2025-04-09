@@ -21,7 +21,7 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-bool check(ll l,ll n){
+bool ch(ll l,ll n){
     return l>=0 && l<n;
 }
 
@@ -30,15 +30,16 @@ void asikM(){
     cin >> n;
     string a,b;
     cin>>a>>b;
-    if(count(all(a),'1') > count(all(b),'0')){
-        pn
-        return;
+    ll even1=0,odd1=0,even0=0,odd0=0;
+    for(int i=0;i<n;i+=2){
+        if(a[i]=='1') even1++;
+        if(b[i]=='0') even0++;
     }
-    fl(i,1,n){
-        if(a[i]=='1' && b[i-1]=='0') swap(a[i],b[i-1]);
-        if(b[i]=='0' && a[i-1]=='1') swap(a[i-1],b[i]);
+    for(int i=1;i<n;i+=2){
+        if(a[i]=='1') odd1++;
+        if(b[i]=='0') odd0++;
     }
-    cout<<a<<" "<<b<<el
+    if(even1<=odd0 && odd1<=even0) py else pn
 }
 
 int main() {
