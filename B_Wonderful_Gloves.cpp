@@ -22,18 +22,18 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,k;
+    ll n,k,x=0,c=0;
     cin >> n>>k;
     vector <ll> a(n),b(n),rm;
     for (auto& x:a) cin >>x; 
     for (auto& x:b) cin >>x; 
-    forni rm.pb(min(a[i],b[i]));
-    sort(all(rm));
-    ll l=accumulate(all(a),0LL),r=accumulate(all(b),0LL),x=accumulate(rm.begin(),rm.begin()+n-k+1,0LL);
-    // cout<<l<<" "<<r<<el
-    // co(n-k+1)
-    // co(x)
-    co(l+r-x+1)
+    forni{
+        rm.pb(min(a[i],b[i]));
+        c+=max(a[i],b[i]);
+    }
+    sort(allr(rm));
+    fl(i,0,k-1) x+=rm[i];
+    co(c+x+1)
 }
 
 int main() {
