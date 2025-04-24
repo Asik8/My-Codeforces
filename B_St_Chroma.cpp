@@ -29,13 +29,9 @@ void asikM(){
         co(0)
         return;
     }
-    forni{
-        if(i != x){
-            v.pb(i);
-        }
-    }
-    v.pb(x);
-    flx(v)
+    for(int i=0;i<x;i++) ct(i)
+    for(int i=n-1;i>=x;i--) ct(i)
+    elc
 }
 
 int main() {
