@@ -30,7 +30,7 @@ void asikM(){
         cin>>x;
         s.insert(x);
     }
-    co(sz(s))
+    co(s.size())
 }
 
 int main() {
