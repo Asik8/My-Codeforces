@@ -22,42 +22,44 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n;
-    cin >> n;
-    string s;
-    cin>>s;
-    ll c=0,in1=-1,in2=-1,f=0;
-    forni{
-        if(s[i]=='1'){
-            in1=i;
-            break;
+    ll n,k;
+    cin >> n>>k;
+    vec(ll) v1(n),v2(n);
+    for (auto& x:v1) cin >>x; 
+    for (auto& x:v2) cin >>x; 
+    ll cnt = 0;
+    set<ll> st;
+    fl(i, 0, n) {
+        if (v2[i] != -1) st.pbs(v1[i]+v2[i]);
+        else cnt++;
+    }
+    if (cnt == n) {
+        ll mx = *max_element(all(v1));
+        ll mn = LLONG_MAX;
+        for (auto x : v1) mn = min(mn, x+k);
+        if (mx > mn) {
+            co(0);
+            return;
+        } 
+        co(max(0LL, mn - mx + 1));
+        return;
+    }
+    if (sz(st) != 1) {
+        co(0);
+        return;
+    }
+    ll total = *st.begin();
+    bool ok = true;
+    fl(i, 0, n) {
+        if (v2[i] == -1) {
+            ll val = total - v1[i];
+            if (val < 0 || val > k) {
+                ok = false;
+                break;
+            }
         }
     }
-    s+='1';
-    fl(i,in1+1,n){
-        if(s[i]=='0' && s[i+1]=='1'){
-            in2=i+1;
-            break;
-        }
-    }
-    s.pop_back();
-    if(in1!=-1 && in2!=-1) reverse(s.begin()+in1,s.begin()+in2);
-    else if(in1 != -1 && in1<n) reverse(s.begin()+in1,s.end());
-    // cout<<in1<<" "<<in2<<el
-    // co(s)
-    forni{
-        if(s[i]=='1' && f==1) c++;
-        else if(s[i]=='0' && f==0) c++;
-        else if(s[i]=='0' && f==1){
-            c+=2;
-            f=0;
-        }
-        else if(s[i]=='1' && f==0){
-            c+=2;
-            f=1;
-        }
-    }
-    co(c)
+    cout << (ok ? "1\n" : "0\n");
 }
 
 int main() {

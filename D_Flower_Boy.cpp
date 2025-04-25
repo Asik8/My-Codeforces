@@ -24,40 +24,8 @@ using namespace std;
 void asikM(){
     ll n;
     cin >> n;
-    string s;
-    cin>>s;
-    ll c=0,in1=-1,in2=-1,f=0;
-    forni{
-        if(s[i]=='1'){
-            in1=i;
-            break;
-        }
-    }
-    s+='1';
-    fl(i,in1+1,n){
-        if(s[i]=='0' && s[i+1]=='1'){
-            in2=i+1;
-            break;
-        }
-    }
-    s.pop_back();
-    if(in1!=-1 && in2!=-1) reverse(s.begin()+in1,s.begin()+in2);
-    else if(in1 != -1 && in1<n) reverse(s.begin()+in1,s.end());
-    // cout<<in1<<" "<<in2<<el
-    // co(s)
-    forni{
-        if(s[i]=='1' && f==1) c++;
-        else if(s[i]=='0' && f==0) c++;
-        else if(s[i]=='0' && f==1){
-            c+=2;
-            f=0;
-        }
-        else if(s[i]=='1' && f==0){
-            c+=2;
-            f=1;
-        }
-    }
-    co(c)
+    vector <ll> v(n);
+    for (auto& x:v) cin >>x; 
 }
 
 int main() {
