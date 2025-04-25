@@ -22,44 +22,42 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,k;
-    cin >> n>>k;
-    vec(ll) v1(n),v2(n);
-    for (auto& x:v1) cin >>x; 
-    for (auto& x:v2) cin >>x; 
-    ll cnt = 0;
-    set<ll> st;
-    fl(i, 0, n) {
-        if (v2[i] != -1) st.pbs(v1[i]+v2[i]);
-        else cnt++;
-    }
-    if (cnt == n) {
-        ll mx = *max_element(all(v1));
-        ll mn = LLONG_MAX;
-        for (auto x : v1) mn = min(mn, x+k);
-        if (mx > mn) {
-            co(0);
+    ll n,k,c=0;
+    cin>>n>>k;
+    vec(ll)a(n),b(n);
+    for(auto& x:a) cin>>x; 
+    for(auto& x:b) cin>>x; 
+    set<ll>s;
+    forni{
+        if(b[i]!=-1) s.insert(a[i]+b[i]);
+        else c++;
+    }    
+    if(c==n){
+        ll mx=*max_element(all(a)),mn=LLONG_MAX;
+        for(auto x:a) mn=min(mn,x+k);
+        if(mn<mx){
+            co(0)
             return;
-        } 
-        co(max(0LL, mn - mx + 1));
+        }
+        co(max(0LL,mn-mx+1))
         return;
     }
-    if (sz(st) != 1) {
-        co(0);
+    if(sz(s) != 1){
+        co(0)
         return;
     }
-    ll total = *st.begin();
-    bool ok = true;
-    fl(i, 0, n) {
-        if (v2[i] == -1) {
-            ll val = total - v1[i];
-            if (val < 0 || val > k) {
-                ok = false;
-                break;
+    ll l=*s.begin();
+    forni{
+        c=0;
+        if(b[i]==-1){
+            c=l-a[i];
+            if(c<0 || c>k){
+                co(0)
+                return;
             }
         }
     }
-    cout << (ok ? "1\n" : "0\n");
+    co(1)
 }
 
 int main() {
