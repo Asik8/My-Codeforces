@@ -1,45 +1,42 @@
-#include<bits/stdc++.h>
-#define int long long int
-#define ll long long
-#define mod 1000000007
-#define endl "\n"
-
+#include <bits/stdc++.h>
 using namespace std;
-int ts=1;
-// start journey
-
-const int N = 2e5+10;
-
-int cnt(string ch){
-    int ans = 0;
-    for(auto p : ch){
-        if(p == '1') ans++;
+#define ll long long
+#define pb push_back
+#define py cout<<"YES\n";
+#define pn cout<<"NO\n";
+#define co(x1) cout<<x1<<"\n";
+#define f(x1,x2,x3) for(int x1=x2;x1<x3;x1++)
+#define fr(x1,x2,x3) for(int x1=x2;x1>=x3;x1--)
+#define forni for(int i=0;i<n;i++)
+#define sz(x) x.size()
+#define vec vector<ll>
+const int N=1e3+5;
+string a[N];
+void asikM(){
+    ll n;
+    cin >> n;
+    forni cin>>a[i];
+    vec b(n);
+    for(int i=1;i<=n;i++){
+        ll c=0;
+        for(int j=0;j<i-1;j++){
+            c+=(a[i-1][j]-'0');
+        }
+        for(int j=i;j<n;j++){
+            c+=!(a[i-1][j]-'0');
+        }
+        b[c]=i;
     }
-    return ans;
+    for(auto x:b) cout<<x<<" ";
+    cout<<endl;
 }
 
-void solve(){
-    int n; cin >> n;
-    string ch;
-    cin >> ch;
-    int ans = 0;
-    for(int i = 0; i < n; i++){
-        string tmp = ch;
-        if(tmp[i] == '0') tmp[i] = '1';
-        else tmp[i] = '0';
-        cout<<tmp<<" "<<ans<<'\n';
-        ans += cnt(tmp);
-    }
-    cout << ans << endl;
-}
-
-int32_t main()
-{
-    ios_base::sync_with_stdio(false);
+int main() {
+    ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t=1;
+    ll t;
     cin >> t;
-    while(t--){
-        solve();
-    }
+    while (t--)
+    asikM();      
+    return 0;
 }
