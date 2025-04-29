@@ -20,12 +20,42 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
+const ll INF=1000000000000000000LL;
 
 void asikM(){
-    ll n;
-    cin >> n;
-    vector <ll> v(n);
-    for (auto& x:v) cin >>x; 
+    ll n,m,l=0,mn=LLONG_MAX;
+    cin>>n>>m;
+    vector <ll> a(n),b(m),s(m,-INF),p(m,INF);
+    for (auto& x:a) cin >>x; 
+    for (auto& x:b) cin >>x; 
+    forni{
+        if(a[i]>=b[l]){
+            p[l]=i;
+            l++;
+        }
+        if(l==m) break;
+    }
+    l=m-1;
+    for(int i=n-1;i>=0;i--){
+        if(a[i]>=b[l]){
+            s[l]=i;
+            l--;
+        }
+        if(l<0) break;
+    }
+    if(p[m-1] != INF){
+        co(0)
+        return;
+    }
+    fl(i,1,m-1){
+        if(s[i+1]>p[i-1])
+            mn=min(mn,b[i]);
+    }
+    if(p[m-2] != INF) mn=min(mn,b[m-1]);
+    if(s[1] != -INF) mn=min(mn,b[0]);
+    if(mn==LLONG_MAX) co(-1) else co(mn)
+    // flx(s)
+    // flx(p)
 }
 
 int main() {
