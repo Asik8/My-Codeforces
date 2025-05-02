@@ -24,20 +24,10 @@ using namespace std;
 void asikM(){
     ll n,k,ans=0,nk;
     cin >> n>>k;
-    nk=k;
-    while(k<n)k+=nk;
-    ll l=0,r=k+1;
-    while(l<=r){
-        ll m=l+(r-l)/2;
-        cout<<l<<' '<<r<<el
-        co(m)
-        if((m*n)>=k && !((m*n)%k)){
-            // co("Hit")
-            ans=m;
-            r=m-1;
-        } else l=m+1;
-    }
-    co(ans)
+    if(n>k) k=((n+(k-1))/k)*k;
+    ll r=(k/n);
+    if((k%n)) r++;
+    co(r)
 }
 
 int main() {
