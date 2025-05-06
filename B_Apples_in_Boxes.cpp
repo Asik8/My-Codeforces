@@ -27,13 +27,14 @@ void asikM(){
     vector <ll> v(n);
     for (auto& x:v) cin >>x; 
     sort(all(v));
-    if((*max_element(all(v))-1)-*min_element(all(v))>k){
-        co("Jerry")
-        return;
+    ll mn=*min_element(all(v)),mx=*max_element(all(v));
+    ll c=0,c1=0;
+    forni{
+        if(v[i]>0) c+=v[i];
+        if(v[i]==mx) c1++;
     }
-    ll c=0;
-    forni if(v[i]>0) c+=v[i];
-    if(c&1) co("Tom") else co("Jerry")
+    if(mx-mn<=k || mx-mn==k+1 && c1==1) if(c&1) co("Tom") else co("Jerry")
+    else co("Jerry")
 }
 
 int main() {
