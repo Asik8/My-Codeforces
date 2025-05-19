@@ -1,1 +1,0 @@
-{"name":"Local: CF-460A","url":"d:\\Codes\\CodeForce\\CF-460A.cpp","tests":[{"id":1716034585362,"input":"2 2 ","output":"3"},{"id":1716034593361,"input":"9 3","output":"13"},{"id":1716034988653,"input":"10 2","output":"19"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-460A.cpp","group":"local","local":true}

@@ -1,1 +1,0 @@
-{"name":"Local: CF-1754A","url":"d:\\Codes\\CodeForce\\CF-1754A.cpp","tests":[{"id":1713345941797,"input":"5\n4\nQQAA\n4\nQQAQ\n3\nQAA\n1\nQ\n14\nQAQQAQAAQQQAAA","output":"Yes\nNo\nYes\nNo\nYes"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1754A.cpp","group":"local","local":true}

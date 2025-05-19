@@ -1,1 +1,0 @@
-{"name":"Local: CF-1971D","url":"d:\\Codes\\CodeForce\\CF-1971D.cpp","tests":[{"id":1715354269591,"input":"6\n11010\n00000000\n1\n10\n0001111\n0110","output":"3\n1\n1\n2\n1\n2"},{"id":1715354789266,"input":"1\n00001110000011","output":"3"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1971D.cpp","group":"local","local":true}

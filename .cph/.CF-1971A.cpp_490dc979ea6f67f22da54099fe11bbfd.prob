@@ -1,1 +1,0 @@
-{"name":"Local: CF-1971A","url":"d:\\Codes\\CodeForce\\CF-1971A.cpp","tests":[{"id":1715351975333,"input":"10\n1 9\n8 4\n1 4\n3 4\n2 0\n2 4\n6 9\n3 3\n0 0\n9 9","output":"1 9\n4 8\n1 4\n3 4\n0 2\n2 4\n6 9\n3 3\n0 0\n9 9"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\Codes\\CodeForce\\CF-1971A.cpp","group":"local","local":true}
