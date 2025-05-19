@@ -21,36 +21,31 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-ll add(ll n){
+void add(ll n){
     cout<<"add "<<n<<endl;
     ll r; cin>>r;
-    return r;
 }
 
-ll mul(ll n){
+void mul(ll n){
     cout<<"mul "<<n<<endl;
     ll r; cin>>r;
-    return r;
 }
 
-ll div(ll n){
+void div(ll n){
     cout<<"div "<<n<<endl;
     ll r; cin>>r;
-    return r;
 }
 
-ll digit(){
+void digit(){
     cout<<"digit"<<endl;;
     ll r; cin>>r;
-    return r;
 }
 
-ll done(){
+void done(){
     cout<<"!"<<endl;
     ll r;
     cin>>r;
     if(r==-1) exit(0);
-    return r;
 }
 
 int main() {
