@@ -1,143 +1,50 @@
-//#pragma GCC optimize("Ofast")
-//#pragma GCC target("avx,avx2,fma")
-//#pragma GCC target("sse,sse2,sse3,ssse3,sse4.1,sse4.2,sse4a,avx,avx2,popcnt,tune=native")
-#include <iostream>
-#include <cstdio>
-#include <cstdlib>
-#include <algorithm>
-#include <cmath>
-#include <vector>
-#include <set>
-#include <map>
-#include <unordered_set>
-#include <unordered_map>
-#include <queue>
-#include <ctime>
-#include <cassert>
-#include <complex>
-#include <string>
-#include <cstring>
-#include <chrono>
-#include <random>
-#include <bitset>
-#include <array>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+#define pb push_back
+#define pbs insert
+#define pi pair<ll,ll>
+#define py cout<<"YES\n";
+#define pys cout<<"Yes\n";
+#define pn cout<<"NO\n";
+#define pns cout<<"No\n";
+#define co(x1) cout<<x1<<"\n";
+#define ct(x1) cout<<x1<<" ";
+#define elc cout<<"\n";
+#define el "\n";
+#define fl(x1,x2,x3) for(int x1=x2;x1<x3;x1++)
+#define flr(x1,x2,x3) for(int x1=x2;x1>=x3;x1--)
+#define flx(x1) for(auto x:x1) ct(x) elc
+#define forni for(int i=0;i<n;i++)
+#define all(x1) x1.begin(),x1.end()
+#define allr(x1) x1.rbegin(),x1.rend()
+#define sz(x) x.size()
+#define vec(x) vector<x>
 
-#ifdef LOCAL
-	#define eprintf(...) {fprintf(stderr, __VA_ARGS__);fflush(stderr);}
-#else
-	#define eprintf(...) 42
-#endif
-
-using ll = long long;
-using ld = long double;
-using uint = unsigned int;
-using ull = unsigned long long;
-using pii = pair<int, int>;
-using pli = pair<ll, int>;
-using pll = pair<ll, ll>;
-mt19937_64 rng(chrono::steady_clock::now().time_since_epoch().count());
-ll myRand(ll B) {
-	return (ull)rng() % B;
-}
-
-#define mp make_pair
-#define all(x) (x).begin(),(x).end()
-
-clock_t startTime;
-double getCurrentTime() {
-	return (double)(clock() - startTime) / CLOCKS_PER_SEC;
-}
-
-ll floor_div(ll x, ll y) {
-	assert(y != 0);
-	if (y < 0) {
-		y = -y;
-		x = -x;
+void asikM(){
+	ll n,k;
+	cin >> n>>k;
+	vector <ll> v(n);
+	for (auto& x:v) cin >>x; 
+	sort(v.begin(),v.end());
+	ll l=0,r=n-1;
+	while(l<=r){
+		ll m=(l+r)/2;
+		if(v[m]>k) r=m-1;
+		else if(v[m]<k) l=m+1;
+		else{
+			cout<<"Found."<<endl;
+			break;
+		}
 	}
-	if (x >= 0) return x / y;
-	return (x + 1) / y - 1;
-}
-ll ceil_div(ll x, ll y) {
-	assert(y != 0);
-	if (y < 0) {
-		y = -y;
-		x = -x;
-	}
-	if (x <= 0) return x / y;
-	return (x - 1) / y + 1;
-}
-template<typename T>
-T sqr(T x) {
-	return x * x;
-}
-
-const int M = (int)1e7 + 7;
-bool p[M];
-const int N = 500500;
-int n, m;
-int a[N], b[N];
-
-void solve() {
-	scanf("%d", &n);
-    for(int i=0;i<n;i++) cout<<a[i]<<" ";
-    cout<<'\n';
-    for(int i=0;i<n;i++) cout<<b[i]<<" ";
-    cout<<'\n';
-	ll bal = 0;
-	for (int i = 0; i < n; i++) {
-		scanf("%d", &a[i]);
-		bal += a[i] - b[i];
-	}
-	sort(a, a + n);
-	reverse(a, a + n);
-	int k = n;
-	while(bal < 0) {
-		k--;
-		bal -= a[k] - b[k];
-	}
-	printf("%d\n", n - k);
 }
 
 int main() {
-	startTime = clock();
-//	freopen("input.txt", "r", stdin);
-//	freopen("output.txt", "w", stdout);
-
-	for (int x = 2; x < M; x++)
-		p[x] = 1;
-	for (int x = 2; x < M; x++) if (p[x]) {
-		if (m == N) break;
-		b[m++] = x;
-		for (int y = x + x; y < M; y += x)
-			p[y] = 0;
-	}
-	assert(m == N);
-
-	int t;
-	scanf("%d", &t);
-	for (int i = 1; i <= t; i++) {
-		eprintf("--- Case #%d start ---\n", i);
-		//printf("Case #%d: ", i);
-
-		solve();
-
-		//printf("%lld\n", (ll)solve());
-
-		/*
-		if (solve()) {
-			printf("Yes\n");
-		} else {
-			printf("No\n");
-		}
-		*/
-
-		eprintf("--- Case #%d end ---\n", i);
-		eprintf("time = %.5lf\n", getCurrentTime());
-		eprintf("++++++++++++++++++++\n");
-	}
-
-
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	ll t=1;
+	cin >> t;
+	while (t--)
+	asikM();      
 	return 0;
 }
