@@ -16,18 +16,18 @@ void asikM(){
     cin >> n>>k;
     vector <ll> v(n);
     for (auto& x:v) cin >>x; 
-    sort(v.begin(),v.end());
     auto ch=[&](ll m){
         ll c=0;
-        f(i,n/2,n){
-            c+=(m>v[i] ? (m-v[i]):0);
+        for(int i=n/2;i<n;i++){
+            if(v[i]<m) c+=m-v[i];
             if(c>k) return false;
         }
         return c<=k;
     };
-    ll l=0,r=2e9,m,ans=-1;
+    sort(v.begin(),v.end());
+    ll l=0,r=2e9,ans=0;
     while(l<=r){
-        m=(l+r)/2;
+        ll m=l+(r-l)/2;
         if(ch(m)){
             ans=m;
             l=m+1;
