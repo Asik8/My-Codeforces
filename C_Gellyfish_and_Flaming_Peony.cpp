@@ -21,41 +21,70 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-void asikM(){
-    ll n,c=0;
-    cin >> n;
-    vector <ll> v(n);
-    bool f=false,odd=false,even=false;
-    for (auto& x:v){
-        cin >>x; 
-        if(x==1) f=true;
-        else c++;
-        if(x&1) odd=true;
-        if(!(x&1)) even=true;
+vector<int> findPrimeFactors(int n){
+    vector<int> primeFactors(9, 0);
+    int j = 0;
+    if (n % 2 == 0) {
+        primeFactors[j++] = 2;
+        while (n % 2 == 0)
+            n >>= 1;
     }
-    if(f){
-        co(c)
+    for (int i = 3; i * i <= n; i += 2) {
+        if (n % i == 0) {
+            primeFactors[j++] = i;
+            while (n % i == 0) n /= i;
+        }
+    }
+    if (n > 2) primeFactors[j++] = n;
+    vector<int> PrimeFactors(j);
+    for(int i = 0; i < j; i++) PrimeFactors[i] = primeFactors[i];
+    return PrimeFactors;
+}
+
+void findShortestSubsequence(vector<int> &dp, vector<int> a, int index, vector<int> primeFactors){
+    int n = a.size();
+    for (int j = index; j < n; j++) {
+        int bitmask = 0;
+        for (int p = 0;p < primeFactors.size(); p++) 
+            if ((a[j] % primeFactors[p]) == 0) bitmask ^= (1 << p);
+
+        for (int i = 0; i < dp.size(); i++) {
+            if (dp[i] == n + 1) continue;
+            dp[bitmask & i] = min(dp[bitmask & i], dp[i] + 1);
+        }
+    }
+}
+
+int printMinimumLength(vector<int> a){
+    int Min = a.size() + 1;
+    for (int i = 0; i < a.size() - 1; i++) {
+        vector<int> primeFactors = findPrimeFactors(a[i]);
+        int n = primeFactors.size();
+        vector<int> dp(1 << n, a.size() + 1);
+        int setBits = (1 << n) - 1;
+        dp[setBits] = 1;
+        findShortestSubsequence(dp, a, i + 1, primeFactors);
+        Min = min(dp[0], Min);
+    }
+    return Min;
+}
+
+
+void asikM(){
+    int n,c=0;
+    cin >> n;
+    vector <int> v(n);
+    for (auto& x:v) cin >>x; 
+    forni c=__gcd(c,v[i]);
+    forni v[i]/=c;
+    if(count(all(v),1)==n){
+        co(0)
         return;
     }
-    c=0;
-    forni{
-        fl(j,0,n){
-            if(i!=j && __gcd(v[i],v[j])==1){
-                co(n)
-                return;
-            }
-        }
-    }
-    fl(i,1,n){
-        if(__gcd(v[0],v[i])!=v[0]){
-            v[0]=__gcd(v[0],v[i]);
-            c++;
-        }
-    }
-    fl(j,1,n){
-        if(v[j]!=v[0]) c++;
-    }
-    co(c)
+    auto x=printMinimumLength(v);
+    ll cnt=0;
+    forni if(v[i]>1) cnt++;
+    if(x!=1) co(cnt+x-2) else co(cnt)
 }
 
 int main() {
