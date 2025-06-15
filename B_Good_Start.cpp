@@ -22,21 +22,18 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,c=0;
-    cin >> n;
-    vector <ll> v(n);
-    for (auto& x:v) cin >>x;
-    set<ll>s,ns;
-    s.insert(v[0]);
-    for(int i=1;i<n;i++){
-        ns.insert(v[i]);
-        if(s.count(v[i])) s.erase(v[i]);
-        if(sz(s)==0){
-            c++;
-            s=ns;
-        }
-    }
-    co(c+1)
+    ll w,h,a,b;
+    cin>>w>>h>>a>>b;
+    ll x1,x2,x3,x4;
+    cin>>x1>>x2>>x3>>x4;
+    x1+=a;
+    x2+=b;
+    // cout<<x1<<' '<<x2<<el
+    bool f=false;
+    if((x3-x1)>0 && !((x3-x1)%a)) f=true;
+    if((x4-x2)>0 && !((x4-x2)%b)) f=true;
+    // cout<<(x3-x1)<<' '<<(x4-x2)<<el
+    if(f)pys else pns
 }
 
 int main() {
