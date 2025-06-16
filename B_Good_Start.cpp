@@ -26,12 +26,10 @@ void asikM(){
     cin>>w>>h>>a>>b;
     ll x1,x2,x3,x4;
     cin>>x1>>x2>>x3>>x4;
-    x1+=a;
-    x2+=b;
-    // cout<<x1<<' '<<x2<<el
     bool f=false;
-    if((x3-x1)>0 && !((x3-x1)%a)) f=true;
-    if((x4-x2)>0 && !((x4-x2)%b)) f=true;
+    if((x3!=x1) && !((x3-x1)%a)) f=true;
+    if((x4!=x2) && !((x4-x2)%b)) f=true;
+    if(!((x1-x3)%a) && !((x2-x4)%b)) f=true;
     // cout<<(x3-x1)<<' '<<(x4-x2)<<el
     if(f)pys else pns
 }
