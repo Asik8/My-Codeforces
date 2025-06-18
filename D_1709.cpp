@@ -28,33 +28,30 @@ void asikM(){
     for (auto& x:a) cin >>x; 
     for (auto& x:b) cin >>x; 
     vector<pi>ans;
-    if(n==1){
-        if(a[0]>b[0]){
-            swap(a[0],b[0]);
-            ans.pb({3,1});
-        }
-    }
     forni{
         if(a[i]>b[i]){
             ans.pb({3,i+1});
             swap(a[i],b[i]);
         }
     }
-    for(int i=n-1;i>0;i--){
-        if(a[i]<a[i-1]){
-            swap(a[i],a[i-1]);
-            ans.pb({1,i});
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n-1;j++){
+            if(a[j]>a[j+1]){
+                swap(a[j],a[j+1]);
+                ans.pb({1,j+1});
+            }
         }
-        if(b[i]<b[i-1]){
-            swap(b[i],b[i-1]);
-            ans.pb({2,i});
-        }
-        // if(a[i]>b[i]){
-        //     swap(a[i],b[i]);
-        //     ans.pb({3,i+1});
-        // }
     }
-    if(a.back()>b.back()) ans.pb({3,n});
+    for(int i=0;i<n;i++){
+         for(int j=0;j<n-1;j++){
+            if(b[j]>b[j+1]){
+                swap(b[j],b[j+1]);
+                ans.pb({2,j+1});
+            }
+        }
+    }
+    // flx(a)
+    // flx(b)
     if(sz(ans)==0) co(0)
     else{
         co(sz(ans))
