@@ -1,5 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
+bool isPrime(ll n){
+    if(n==1) return false;
+    for(ll i=2;i*i<=n;i++){
+        if(!(n%i)){
+            return false;
+        }
+    }
+    return true;
+}
 
 class Solution {
 public:
