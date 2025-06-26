@@ -22,26 +22,22 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n;
-    cin >> n;
-    vector <ll> v(n);
-    for (auto& x:v) cin >>x; 
-    ll l=0,ans=LLONG_MAX;
-    while(l<n){
-        ll r=l+1;
-        while(r<n && v[r]==v[l]) r++;
-        ll c=(n-(r-l))*v[l];
-        ans=min(ans,c);
-        l=r;
+    ll a,b,c;
+    cin>>a>>b>>c;
+    for(int i=0;i*a<=c;i++){
+        if(!((c-(i*a))%b)){
+            pys
+            return;
+        }
     }
-    co(ans)
+    pns
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     ll t=1;
-    cin >> t;
+    // cin >> t;
     while (t--)
     asikM();      
     return 0;
