@@ -24,30 +24,7 @@ using namespace std;
 void asikM(){
     ll n;
     cin >> n;
-    // ll s=0;
-    // fl(i,0,n) s+=i;
-    // co(s)
-    // if(!(s%3)) co("Bob") else co("Alice")
-    vec(bool) vis(n,false);
-    bool al=true,b=false;
-    ll r=n-1;
-    while(1){
-        vis[r]=true;
-        for(int i=0;i<r;i++){
-            if(!vis[i] && (i+r)%4==3){
-                vis[i]=true;
-                al=false;
-                b=true;
-            }
-        }
-        if(al==true) break;
-        while(vis[r]) r--;
-        if(r>0){
-            al=true;
-            b=false;
-        }
-    }
-    cout<<al<<" "<<b<<el
+    if(!(n%4)) co("Bob") else co("Alice")
 }
 
 int main() {
