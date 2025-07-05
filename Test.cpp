@@ -1,80 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
-bool isPrime(ll n){
-    if(n==1) return false;
-    for(ll i=2;i*i<=n;i++){
-        if(!(n%i)){
-            return false;
-        }
-    }
-    return true;
+#define ll long long
+#define pb push_back
+#define pbs insert
+#define pi pair<ll,ll>
+#define py cout<<"YES\n";
+#define pys cout<<"Yes\n";
+#define pn cout<<"NO\n";
+#define pns cout<<"No\n";
+#define co(x1) cout<<x1<<"\n";
+#define ct(x1) cout<<x1<<" ";
+#define elc cout<<"\n";
+#define el "\n";
+#define fl(x1,x2,x3) for(int x1=x2;x1<x3;x1++)
+#define flr(x1,x2,x3) for(int x1=x2;x1>=x3;x1--)
+#define flx(x1) for(auto x:x1) ct(x) elc
+#define forni for(int i=0;i<n;i++)
+#define all(x1) x1.begin(),x1.end()
+#define allr(x1) x1.rbegin(),x1.rend()
+#define sz(x) x.size()
+#define vec(x) vector<x>
+
+void asikM(){
+    ll n;
+    cin >> n;
+    co(__popcount(n-1))
 }
 
-class Solution {
-public:
-    int minimumMoves(vector<vector<int>>& grid) {
-        map<pair<int,int>,int>m;
-		vector<pair<int,int>> d{{0,1},{1,0},{-1,0},{0,-1}};
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
-                if(grid[i][j]>1){
-                    for(auto [x,y]:d){
-                        int ix=x+i,jy=y+j;
-                        if(grid[i][j]>1 && grid[ix][jy]==0){
-                            grid[i][j]--;
-                            grid[ix][jy]++;
-                        }
-                    }
-                }
-            }
-        }
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
-                if(grid[i][j]>1){
-                    m[{i,j}]=grid[i][j];
-                }
-            }
-        }
-        for(auto [x,y]:m) cout<<x.first<<" "<<x.second<<" "<<y<<endl;
-        int c=0;
-        for(int i=0;i<3;i++){
-            for(int j=0;j<3;j++){
-                if(grid[i][j]==0){
-					cout<<"For the index: "<<i<<" "<<j<<endl;
-					int p=0,q=0,val=INT_MAX;
-                    for(auto[x,y]:m){
-						auto [l,r]=x;
-                        if(grid[l][r]>1){
-							int dis=abs(i-l)+abs(j-r);
-                            if(dis<val){
-								p=l;
-                                q=r;
-                                val=dis;
-                            }
-                        }
-                    }
-					cout<<"update value with : "<<val<<" "<<p<<" "<<q<<" "<<grid[p][q]<<endl;
-                    c+=val;
-                    grid[p][q]--;
-					cout<<"Updated "<<grid[p][q]<<endl<<endl;
-                }
-            }
-        }
-        return c;
-    }
-};
-
 int main() {
-    Solution sol;
-    vector<vector<int>> grid(3, vector<int>(3));
-
-    cout << "Enter the 3x3 grid:\n";
-    for(int i = 0; i < 3; i++)
-        for(int j = 0; j < 3; j++)
-            cin >> grid[i][j];
-
-    int moves = sol.minimumMoves(grid);
-    cout << "Minimum moves: " << moves << endl;
-
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    ll t=1;
+    // cin >> t;
+    while (t--)
+    asikM();      
     return 0;
 }
