@@ -21,36 +21,33 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
+const int N=1e5;
+vector<ll> d(N+1,0);
+
+void findh(){
+    for(int i=1;i<=N/2;i++){
+        for(int j=2*i;j<=N;j+=i){
+            d[j]=i;
+        }
+    }
+}
+
 void asikM(){
     ll n;
     cin >> n;
-    vector <ll> v(n);
-    map<ll,ll>m,fr;
-    for (auto& x:v){
-        cin >>x; 
-        m[x]++;
+    vector <ll> v(n+1);
+    for(int i=1;i<=n;i++) v[i]=i;
+    for(int i=n;i>1;i--){
+        if(d[i]!=1) swap(v[i],v[d[i]]);
     }
-    ll mx=0;
-    for(auto [x,y]:m){
-        if(x==mx){
-            mx++;
-            fr[y]++;
-        }
-    }
-    vec(ll) a(n+1,0);
-    a[n]=1;
-    for(int i=n-1;i>n-mx;i--) a[i]=a[i+1]+1;
-    a[0]=1;
-    for(int i=1;i<=n;i++){
-        if(a[i]) break;
-        else a[i]=a[i-1]+fr[i];
-    }
-    flx(a)
+    fl(i,1,n+1) cout<<v[i]<<" ";
+    elc
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
+    findh();
     ll t=1;
     cin >> t;
     while (t--)
