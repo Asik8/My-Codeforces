@@ -23,19 +23,24 @@ using namespace std;
 
 void asikM(){
     ll n,m;
-    cin >> n>>m;
-    vector <ll> v(m);
-    for (auto& x:v) cin >>x; 
-    vector<ll>a=v,b(m,-1);
+    cin >>n>>m;
+    vector <pi> v(m*n);
+    for (int i=0;i<n*m;i++){
+        cin >>v[i].first; 
+        v[i].second=i;
+    }
+    sort(all(v));
+    fl(i,0,n*m) v[i].second=-v[i].second;
     ll c=0;
-    sort(all(a));
-    map<ll,int>mp;
-    for(int i=m-1;i>=0;i--) mp[a[i]]=max(mp[a[i]],i);
-    // for(auto [x,y]:mp) cout<<x<<" "<<y<<el
-    for(int i=0;i<m;i++){
-        for(int j=0;j<=mp[v[i]];j++) if(b[j]!=-1) c++;
-        b[mp[v[i]]]=1;
-        mp[v[i]]--;
+    for(int i=0;i<n;i++){
+        sort(v.begin()+(m*i),v.begin()+(m*i+m));
+        fl(j,0,m){
+            fl(k,0,j){
+                if(v[i*m+k].second>v[i*m+j].second){
+                    c++;
+                }
+            }
+        }
     }
     co(c)
 }
