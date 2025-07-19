@@ -21,25 +21,33 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-void asikM() {
-    ll n, k;
-    cin >> n >> k;
-    vector<pair<ll, pi>> v(n);
-    for (auto& x : v)  cin >> x.first >> x.second.first >> x.second.second;
-    sort(all(v));
-    forni{
-        ll l=v[i].first,r=v[i].second.first,x=v[i].second.second;
-        if(k>=l && k<=r) k=max(k,x);
+void asikM(){
+    ll n,e=0,o=0;
+    cin >> n;
+    vector <ll> v(n);
+    set<ll>st;
+    for (auto& x:v){
+        cin >>x; 
+        if(x&1) o++;
+        else e++;
+        st.insert(x);
     }
-    co(k)
+    if(n==2 || sz(st)==2){
+        co(1000000000000000000)
+        return;
+    } else if(o && e){
+        co(2)
+        return;
+    }
+    pn
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t = 1;
+    ll t=1;
     cin >> t;
     while (t--)
-        asikM();
+    asikM();      
     return 0;
 }

@@ -21,25 +21,37 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-void asikM() {
-    ll n, k;
-    cin >> n >> k;
-    vector<pair<ll, pi>> v(n);
-    for (auto& x : v)  cin >> x.first >> x.second.first >> x.second.second;
-    sort(all(v));
+void asikM(){
+    ll n;
+    cin >> n;
+    vector <ll> v(n);
+    for (auto& x:v) cin >>x; 
+    vec(ll) ans(n+1,LLONG_MAX);
+    map<ll,vector<ll>>m;
     forni{
-        ll l=v[i].first,r=v[i].second.first,x=v[i].second.second;
-        if(k>=l && k<=r) k=max(k,x);
+        if(m[v[i]].empty()) m[v[i]].pb(-1);
+        m[v[i]].pb(i);
     }
-    co(k)
+    for(auto &[x,y]:m){
+        ll mx=LONG_LONG_MIN,d=sz(y);
+        for(int i=1;i<d;i++) mx=max(mx,(y[i]-y[i-1]));
+        mx=max(mx,n-y[d-1]);
+        // cout<<x<<" "<<mx<<el
+        ans[mx]=min(ans[mx],x);
+    }
+    for(int i=1;i<=n;i++) ans[i]=min(ans[i],ans[i-1]);
+    fl(i,1,n+1) if(ans[i]==LLONG_MAX) ans[i]=-1;
+    // flx(ans)
+    fl(i,1,n+1) cout<<ans[i]<<" ";
+    elc
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t = 1;
+    ll t=1;
     cin >> t;
     while (t--)
-        asikM();
+    asikM();      
     return 0;
 }
