@@ -22,32 +22,26 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,e=0,o=0;
+    ll n,o=0,e=0;
     cin >> n;
     vector <ll> v(n);
-    set<ll>st;
     for (auto& x:v){
         cin >>x; 
         if(x&1) o++;
         else e++;
-        st.insert(x);
     }
-    if(n==2 || sz(st)==2){
-        co(1000000000000000000)
-        return;
-    } else if(o && e){
-        co(2)
+    if(!o || (o && o<3 && e<2)){
+        pn
         return;
     }
-    for(int i=1;i<58;i++){
-        ll k=(1LL<<i);
-        set<ll>s;
-        forni s.insert(v[i]%k);
-        if(sz(s)==2){
-            co(k)
-            return;
-        }
+    vec(ll)od,ev;
+    forni{
+        if(v[i]&1) od.pb(i+1);
+        else ev.pb(i+1);
     }
+    py
+    if(sz(ev)>1) cout<<ev[0]<<" "<<ev[1]<<" "<<od[0]<<el
+    else cout<<od[0]<<' '<<od[1]<<" "<<od[2]<<el
 }
 
 int main() {

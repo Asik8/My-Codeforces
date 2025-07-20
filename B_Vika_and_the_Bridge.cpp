@@ -22,32 +22,37 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,e=0,o=0;
-    cin >> n;
+    ll n,k;
+    cin >> n>>k;
     vector <ll> v(n);
-    set<ll>st;
-    for (auto& x:v){
-        cin >>x; 
-        if(x&1) o++;
-        else e++;
-        st.insert(x);
-    }
-    if(n==2 || sz(st)==2){
-        co(1000000000000000000)
-        return;
-    } else if(o && e){
-        co(2)
-        return;
-    }
-    for(int i=1;i<58;i++){
-        ll k=(1LL<<i);
-        set<ll>s;
-        forni s.insert(v[i]%k);
-        if(sz(s)==2){
-            co(k)
-            return;
+    for (auto& x:v) cin >>x; 
+    vector<vector<ll>>p(k+1);
+    forni p[v[i]].push_back(i);
+    ll ans=LLONG_MAX;
+    fl(i,1,k+1){
+        // cout<<i<<" :- ";
+        // flx(p[i]);
+        vector<ll>d;
+        if(sz(p[i])>0){
+            d.pb(p[i][0]);
+            fl(j,1,sz(p[i])) d.pb(p[i][j]-p[i][j-1]-1);
+            d.pb(n-p[i].back()-1);
+            // flx(d)
+            sort(all(d));
+            if(d.back()&1){
+                ll l=d.back();
+                d.pop_back();
+                d.pb(l/2);
+            } else{
+                ll l=d.back()/2;
+                d.pop_back();
+                d.pb(l);
+            }
+            sort(all(d));
+            ans=min(ans,d.back());
         }
     }
+    co(ans)
 }
 
 int main() {
