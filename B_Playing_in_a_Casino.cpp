@@ -22,32 +22,23 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n;
-    cin >> n;
-    vector <pair<ll,ll>> a(n),b(n);
-    forni{
-        cin>>a[i].first;
-        cin>>b[i].first;
-        a[i].second=i;
-        b[i].second=i;
+    ll n,m;
+    cin>>n>>m;
+    vector<vector<ll>> v(m,vector<ll>(n));
+    fl(i,0,n){
+        fl(j,0,m){
+            cin>>v[j][i];
+        }
+    } 
+    ll c=0;
+    fl(j,0,m){
+        sort(all(v[j]));
+        forni{
+            c+=((i)*v[j][i]);
+            c+=(-1*v[j][i]*(n-i-1));
+        }
     }
-    sort(all(a));
-    sort(all(b));
-    vec(ll)c(n),d(n),t1,t2,t3,t4;
-    forni{
-        c[a[i].second]=i;
-        d[b[i].second]=i;
-    }
-    forni{
-        if(c[i]<(n/2) && d[i]<(n/2)) t1.pb(i);
-        else if(c[i]>=(n/2) && d[i]<(n/2)) t2.pb(i);
-        else if(c[i]>=(n/2) && d[i]>=(n/2)) t3.pb(i);
-        else t4.pb(i);
-    }
-    vector<pi> ans;
-    fl(i,0,sz(t1)) ans.pb({t1[i],t3[i]});
-    fl(i,0,sz(t2)) ans.pb({t2[i],t4[i]});
-    for(auto [x,y]:ans) cout<<x+1<<" "<<y+1<<el
+    co(c)
 }
 
 int main() {

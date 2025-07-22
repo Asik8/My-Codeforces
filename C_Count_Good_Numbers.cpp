@@ -21,33 +21,28 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
+ll ch(ll l, ll r) {
+    vector<int> P = {2, 3, 5, 7};
+    ll T =r-l+1,n=4,s=0;
+    for (int m = 1; m < (1 << n); m++) {
+        ll lm = 1, b = 0;
+        for (int i = 0; i < n; i++) {
+            if (m & (1 << i)) {
+                lm *= P[i];
+                b++;
+            }
+        }
+        ll cnt = (r / lm) - ((l - 1) / lm);
+        if (b % 2 == 1) s += cnt;
+        else s -= cnt;
+    }
+    return T - s;
+}
+
 void asikM(){
-    ll n;
-    cin >> n;
-    vector <pair<ll,ll>> a(n),b(n);
-    forni{
-        cin>>a[i].first;
-        cin>>b[i].first;
-        a[i].second=i;
-        b[i].second=i;
-    }
-    sort(all(a));
-    sort(all(b));
-    vec(ll)c(n),d(n),t1,t2,t3,t4;
-    forni{
-        c[a[i].second]=i;
-        d[b[i].second]=i;
-    }
-    forni{
-        if(c[i]<(n/2) && d[i]<(n/2)) t1.pb(i);
-        else if(c[i]>=(n/2) && d[i]<(n/2)) t2.pb(i);
-        else if(c[i]>=(n/2) && d[i]>=(n/2)) t3.pb(i);
-        else t4.pb(i);
-    }
-    vector<pi> ans;
-    fl(i,0,sz(t1)) ans.pb({t1[i],t3[i]});
-    fl(i,0,sz(t2)) ans.pb({t2[i],t4[i]});
-    for(auto [x,y]:ans) cout<<x+1<<" "<<y+1<<el
+    ll l,r;
+    cin>>l>>r;
+    co(ch(l,r))
 }
 
 int main() {

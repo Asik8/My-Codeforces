@@ -23,31 +23,21 @@ using namespace std;
 
 void asikM(){
     ll n;
-    cin >> n;
-    vector <pair<ll,ll>> a(n),b(n);
-    forni{
-        cin>>a[i].first;
-        cin>>b[i].first;
-        a[i].second=i;
-        b[i].second=i;
+    cin>>n;
+    string s;
+    cin>>s;
+    vec(ll) us(n+1,0);
+    ll c=0;
+    fl(i,1,n+1){
+        for(int j=i;j<=n;j+=i){
+            if(s[j-1]=='1') break;
+            if(!us[j]){
+                c+=i;
+                us[j]=1;
+            }
+        }
     }
-    sort(all(a));
-    sort(all(b));
-    vec(ll)c(n),d(n),t1,t2,t3,t4;
-    forni{
-        c[a[i].second]=i;
-        d[b[i].second]=i;
-    }
-    forni{
-        if(c[i]<(n/2) && d[i]<(n/2)) t1.pb(i);
-        else if(c[i]>=(n/2) && d[i]<(n/2)) t2.pb(i);
-        else if(c[i]>=(n/2) && d[i]>=(n/2)) t3.pb(i);
-        else t4.pb(i);
-    }
-    vector<pi> ans;
-    fl(i,0,sz(t1)) ans.pb({t1[i],t3[i]});
-    fl(i,0,sz(t2)) ans.pb({t2[i],t4[i]});
-    for(auto [x,y]:ans) cout<<x+1<<" "<<y+1<<el
+    co(c)
 }
 
 int main() {
