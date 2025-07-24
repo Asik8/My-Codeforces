@@ -22,24 +22,40 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n;
-    cin >> n;
-    vector <pair<pi,ll>> v(n);
+    ll n,q;
+    cin >> n>>q;
+    vector <ll> v(n);
+    map<ll,ll>m;
     forni{
-        cin>>v[i].first.first>>v[i].first.second;
-        v[i].second=i;
+        cin>>v[i];
+        m[i]=v[i];
     } 
-    sort(v.begin(), v.end(), [](const pair<pi, ll>& a, const pair<pi, ll>& b) {
-        if (a.first.first != b.first.first) return a.first.first < b.first.first; 
-        return a.first.second > b.first.second;                     
-    });
-    fl(i,1,n){
-        if(v[i-1].first.second>=v[i].first.second){
-            cout<<v[i].second+1<<" "<<v[i-1].second+1<<el
-            return;
+    ll s=accumulate(all(v),0LL);
+    ll alle;
+    while(q--){
+        ll x;
+        cin>>x;
+        if(x==1){
+            ll a,b;
+            cin>>a>>b;
+            if(m[a-1]==0){
+                s-=alle;
+                s+=b;
+                m[a-1]=b;
+            } else{
+                s-=m[a-1];
+                s+=b;
+                m[a-1]=b;
+            }
+        } else {
+            ll a;
+            cin>>a;
+            alle=a;
+            m.clear();
+            s=(a*n);
         }
+        co(s)
     }
-    cout<<-1<<" "<<-1<<el
 }
 
 int main() {

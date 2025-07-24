@@ -24,29 +24,31 @@ using namespace std;
 void asikM(){
     ll n;
     cin >> n;
-    vector <pair<pi,ll>> v(n);
-    forni{
-        cin>>v[i].first.first>>v[i].first.second;
-        v[i].second=i;
-    } 
-    sort(v.begin(), v.end(), [](const pair<pi, ll>& a, const pair<pi, ll>& b) {
-        if (a.first.first != b.first.first) return a.first.first < b.first.first; 
-        return a.first.second > b.first.second;                     
-    });
-    fl(i,1,n){
-        if(v[i-1].first.second>=v[i].first.second){
-            cout<<v[i].second+1<<" "<<v[i-1].second+1<<el
-            return;
+    vec(string)v(n);
+    forni cin>>v[i];
+    ll c=0;
+    fl(i,0,(n+1)/2){
+        fl(j,0,n/2){
+            ll o=0,z=0;
+            if(v[i][j]=='1') o++; else z++;
+            if(v[j][n-i-1]=='1') o++; else z++;
+            if(v[n-1-i][n-j-1]=='1') o++; else z++;
+            if(v[n-j-1][i]=='1') o++; else z++;
+            c+=min(o,z);
+            v[i][j]='1';
+            v[n-1-i][n-j-1]='1';
+            v[j][n-i-1]='1';
+            v[n-j-1][i]='1';
         }
     }
-    cout<<-1<<" "<<-1<<el
+    co(c)
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     ll t=1;
-    // cin >> t;
+    cin >> t;
     while (t--)
     asikM();      
     return 0;

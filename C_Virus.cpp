@@ -22,31 +22,32 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n;
-    cin >> n;
-    vector <pair<pi,ll>> v(n);
-    forni{
-        cin>>v[i].first.first>>v[i].first.second;
-        v[i].second=i;
-    } 
-    sort(v.begin(), v.end(), [](const pair<pi, ll>& a, const pair<pi, ll>& b) {
-        if (a.first.first != b.first.first) return a.first.first < b.first.first; 
-        return a.first.second > b.first.second;                     
-    });
-    fl(i,1,n){
-        if(v[i-1].first.second>=v[i].first.second){
-            cout<<v[i].second+1<<" "<<v[i-1].second+1<<el
-            return;
+    ll n,m;
+    cin >> n>>m;
+    vector <ll> v(m);
+    for (auto& x:v) cin >>x; 
+    vector<ll> d;
+    sort(all(v));
+    fl(i,1,m)d.pb(v[i]-v[i-1]-1);
+    d.pb(n-v.back()+v[0]-1);
+    ll red=0,safe=0;
+    sort(allr(d));
+    fl(i,0,sz(d)){
+        if(d[i]>red){
+            d[i]-=red;
+            red+=4;
+            if(d[i]>1) safe+=(d[i]-1);
+            else safe++;
         }
     }
-    cout<<-1<<" "<<-1<<el
+    co(n-safe)
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     ll t=1;
-    // cin >> t;
+    cin >> t;
     while (t--)
     asikM();      
     return 0;
