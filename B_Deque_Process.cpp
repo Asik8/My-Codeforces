@@ -26,6 +26,22 @@ void asikM(){
     cin >> n;
     vector <ll> v(n);
     for (auto& x:v) cin >>x; 
+    string s;
+    ll l=0,r=n-1,x=0;
+    while(l<=r){
+        if(l==r) s+='L';
+        else if(x==0){
+            if(v[l]<v[r]) s+="LR";
+            else s+="RL";
+        } else{
+            if(v[l]<v[r]) s+="RL";
+            else s+="LR";
+        }
+        x^=1;
+        l++;
+        r--;
+    }
+    co(s)
 }
 
 int main() {
