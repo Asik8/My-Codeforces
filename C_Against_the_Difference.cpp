@@ -22,38 +22,20 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,k;
-    cin >> n>>k;
-    string s;
-    cin>>s;
-    ll c=0,mx=0;
-    forni{
-        if(s[i]=='1') c++;
-        else{
-            mx=max(mx,c);
-            c=0;
-        }
-    }
-    mx=max(mx,c);
-    if(mx==k && n==k || mx>=k){
-        pn
-        return;
+    ll n;
+    cin >> n;
+    vector <ll> v(n);
+    map<ll,ll>m;
+    for (auto& x:v){
+        cin >>x;
+        m[x]++;
     } 
-    py
-    vec(ll)p(n);
-    c=n;
-    forni{
-        if(s[i]=='0'){
-            p[i]=c--;
+    if(sz(m)==1){
+        if(v[0]==n){
+            co(1)
+            return;
         }
     }
-    c=1;
-    forni{
-        if(s[i]=='1'){
-            p[i]=c++;
-        }
-    }
-    flx(p)
 }
 
 int main() {

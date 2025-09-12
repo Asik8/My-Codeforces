@@ -21,39 +21,32 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
+vector<ll> divisors(ll n){
+    vector<ll>v;
+    for(ll i=1;i*i<=n;i++){
+        if(!(n%i)){
+            v.pb(i);
+            if((n/i) != i) v.pb(n/i);
+        }
+    }
+    sort(v.begin(),v.end());
+    return v;
+}
+
 void asikM(){
-    ll n,k;
-    cin >> n>>k;
-    string s;
-    cin>>s;
-    ll c=0,mx=0;
-    forni{
-        if(s[i]=='1') c++;
-        else{
-            mx=max(mx,c);
-            c=0;
-        }
-    }
-    mx=max(mx,c);
-    if(mx==k && n==k || mx>=k){
-        pn
-        return;
-    } 
-    py
-    vec(ll)p(n);
-    c=n;
-    forni{
-        if(s[i]=='0'){
-            p[i]=c--;
-        }
-    }
-    c=1;
-    forni{
-        if(s[i]=='1'){
-            p[i]=c++;
-        }
-    }
-    flx(p)
+    ll a,b;
+    cin >>a>>b;
+    ll mx=(((a+b)%2==0)?a+b:-1);
+    vec(ll)d=divisors(b);
+    if(sz(d)){
+        for(auto x:d){
+            ll c=a,tmp=b;
+            c*=x;
+            tmp/=x;
+            if((c+tmp)%2==0) mx=max(mx,c+tmp);
+        }  
+    }  
+    co(mx)
 }
 
 int main() {
