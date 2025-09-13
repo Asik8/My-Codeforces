@@ -21,32 +21,15 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-vector<ll> divisors(ll n){
-    vector<ll>v;
-    for(ll i=1;i*i<=n;i++){
-        if(!(n%i)){
-            v.pb(i);
-            if((n/i) != i) v.pb(n/i);
-        }
-    }
-    sort(v.begin(),v.end());
-    return v;
-}
-
 void asikM(){
-    ll a,b;
-    cin >>a>>b;cp
-    ll mx=(((a+b)%2==0)?a+b:-1);
-    vec(ll)d=divisors(b);
-    if(sz(d)){
-        for(auto x:d){
-            ll c=a,tmp=b;
-            c*=x;
-            tmp/=x;
-            if((c+tmp)%2==0) mx=max(mx,c+tmp);
-        }  
-    }  
-    co(mx)
+    ll n,m;
+    cin >> n>>m;
+    vector <ll> v(n);
+    for (auto& x:v) cin >>x; 
+    sort(allr(v));
+    ll c=0;
+    fl(i,0,min(n,m)) c+=v[i]*(m-i);
+    co(c)
 }
 
 int main() {

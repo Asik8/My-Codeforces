@@ -21,32 +21,27 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-vector<ll> divisors(ll n){
-    vector<ll>v;
-    for(ll i=1;i*i<=n;i++){
-        if(!(n%i)){
-            v.pb(i);
-            if((n/i) != i) v.pb(n/i);
+void asikM(){
+    ll n,m,c=0;
+    cin >>n>>m;
+    vector <pi> v(n);
+    for (auto& x:v) cin>>x.first>>x.second; 
+    if(!(v[0].first&1) && v[0].second==0) c+=v[0].first;
+    else if(!(v[0].first&1) && v[0].second==1) c+=v[0].first-1;
+    else if((v[0].first&1) && v[0].second==0) c+=v[0].first-1;
+    else if((v[0].first&1) && v[0].second==1) c+=v[0].first;
+    fl(i,1,n){
+        auto l=v[i-1],r=v[i];
+        if(l.second==r.second){
+            if((l.first&1)==(r.first&1)) c+=r.first-l.first;
+            else c+=(r.first-l.first-1);
+        } else{
+            if((l.first&1)==(r.first&1)) c+=(r.first-l.first-1);
+            else c+=(r.first-l.first);
         }
     }
-    sort(v.begin(),v.end());
-    return v;
-}
-
-void asikM(){
-    ll a,b;
-    cin >>a>>b;cp
-    ll mx=(((a+b)%2==0)?a+b:-1);
-    vec(ll)d=divisors(b);
-    if(sz(d)){
-        for(auto x:d){
-            ll c=a,tmp=b;
-            c*=x;
-            tmp/=x;
-            if((c+tmp)%2==0) mx=max(mx,c+tmp);
-        }  
-    }  
-    co(mx)
+    c+=(m-v[n-1].first);
+    co(c)
 }
 
 int main() {
