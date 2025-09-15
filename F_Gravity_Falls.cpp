@@ -30,7 +30,35 @@ void asikM(){
         v[i].resize(k);
         for (int j = 0; j < k; j++) cin >> v[i][j];
     }
-    sort(all(v));
+    sort(all(v),[](vec(ll)&a,vec(ll)&b){
+        return sz(a)<sz(b);
+    });
+    // forni{
+    //     flx(v[i]);
+    // }
+    vec(ll)e,ans(v.back().size(),1e9);
+    e.pb(0);
+    for(auto &x:v){
+        ll k=sz(x);
+        fl(i,0,sz(e)){
+            bool f=false;
+            ll l=e[i],r=((i+1)<sz(e)?e[i+1]:k);
+            fl(j,l,r){
+                if(ans[j]<x[j]) break;
+                if(ans[j]>x[j]){
+                    f=true;
+                    break;
+                }
+            }
+            if(f){
+                fl(j,l,k) ans[j]=x[j];
+                while(e.back()>l) e.pop_back();
+                e.pb(k);
+                break;
+            }
+        }
+    }
+    flx(ans)
 }
 
 int main() {
