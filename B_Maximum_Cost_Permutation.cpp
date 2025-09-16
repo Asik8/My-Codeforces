@@ -25,7 +25,33 @@ void asikM(){
     ll n;
     cin >> n;
     vector <ll> v(n);
-    for (auto& x:v) cin >>x; 
+    map<ll,ll>m;
+    for (auto& x:v){
+        cin >>x;
+        m[x]++;
+    }
+    ll l=n;
+    forni{
+        while(m[l])l--;
+        if(v[i]==0)v[i]=l--;
+    } 
+    // flx(v)
+    ll f=-1,e=-1;
+    forni{
+        if(v[i]!=i+1){
+            f=i;
+            break;
+        }
+    }
+    for(int i=n-1;i>=0;i--){
+        if(v[i]!=i+1){
+            e=i;
+            break;
+        }
+    }
+    // cout<<f<<" "<<e<<el
+    if(f==-1) co(0)
+    else co(e-f+1)
 }
 
 int main() {
