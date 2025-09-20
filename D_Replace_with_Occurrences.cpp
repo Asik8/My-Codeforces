@@ -22,15 +22,26 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll a,b;
-    cin >>a>>b;
-    if(a&1 && b&1) co(1+(a*b))
-    else if(!(b&1)){
-        ll l=(b/(b/2))+(a*(b/2));
-        if(l&1) co(-1)
-        else co(l)
+    ll n;
+    cin >> n;
+    vector <ll> v(n);
+    map<ll,vec(ll)>m;
+    for (auto& x:v) cin >>x; 
+    forni m[v[i]].pb(i);
+    ll l=1;
+    for(auto [x,y]:m) {
+        if(sz(y)%x){
+            co(-1)
+            return;
+        }
+        ll c=0;
+        for(auto r:y){
+            v[r]=l;
+            c++;
+            if(!(c%x)) l++;
+        }
     }
-    else co(-1)
+    flx(v)
 }
 
 int main() {

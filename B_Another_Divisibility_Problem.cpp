@@ -25,26 +25,7 @@ const ll N=1e9;
 void asikM(){
     ll n;
     cin >> n;
-    fl(i,1,N){
-        ll x=n,y=i;
-        string s,r;
-        while(x){
-            s+=('0'+(x%10));
-            x/=10;
-        }
-        while(y){
-            r+=('0'+(y%10));
-            y/=10;
-        }
-        reverse(all(s));
-        reverse(all(r));
-        s+=r;
-        ll l=stoll(s);
-        if(l%(n+i)==0){
-            co(i)
-            return;
-        }
-    }
+    co(2*n)
 }
 
 int main() {

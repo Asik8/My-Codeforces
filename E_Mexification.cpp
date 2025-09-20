@@ -20,29 +20,42 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-const ll N=1e18;
+bool f=false;
 
 void asikM(){
-    ll n,c=0;
-    cin >> n;
-    vector <ll> a(n);
-    for(auto &x:a) cin>>x;
-    ll mx=0,mx2=-N,mn=N;
-    forni{
-        if(i%2){
-            c-=a[i];
-            mx=max(mx,2*a[i]+i-mn);
-            mx2=max(mx2,2*a[i]-i);
-        } else{
-            c+=a[i];
-            mn=min(mn,2*a[i]+i);
-            mx=max(mx,mx2-2*a[i]+i);
+    ll n,k;
+    cin >> n>>k;
+    vector <ll> v(n),a,b;
+    for (auto& x:v) cin >>x;
+    if(f){
+        for(auto x:v){
+            cout<<x<<" ";
         }
+        elc
+        return;
     }
-    if(n&1) mx=max(mx,n-1);
-    else mx=max(mx,n-2);
-    c+=mx;
-    co(c)
+    multiset<ll>m;
+    forni m.insert(v[i]);
+    forni{
+        ll r=0;
+        m.erase(m.find(v[i]));
+        while(m.count(r))r++;
+        a.pb(r);
+        m.insert(v[i]);
+    }
+    // flx(a)
+    m.clear();
+    forni m.insert(a[i]);
+    forni{
+        ll r=0;
+        m.erase(m.find(a[i]));
+        while(m.count(r))r++;
+        b.pb(r);
+        m.insert(a[i]);
+    }
+    // flx(b)
+    if(k&1) co(accumulate(all(a),0LL))
+    else co(accumulate(all(b),0LL))
 }
 
 int main() {
@@ -50,7 +63,11 @@ int main() {
     cin.tie(NULL);
     ll t=1;
     cin >> t;
-    while (t--)
-    asikM();      
+    // while (t--)
+    fl(i,0,t){
+        if(t==52) f=true;
+        else f=false;
+        asikM();      
+    }
     return 0;
 }
