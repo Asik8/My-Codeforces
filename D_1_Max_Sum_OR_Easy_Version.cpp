@@ -21,26 +21,33 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
+ll ch(ll n){
+    return 1<<(31-__builtin_clz(n));
+}
+
 void asikM(){
-    ll n;
-    cin >> n;
-    string s;
-    cin>>s;
-    string t=string(1,s[0]);
-    auto ch=[&](){
-        if(t[0]=='0' || t.back()=='0') return true;
-        return (sz(t)/2)%2==0;
-    };
-    fl(i,1,n){
-        if(t.back()==s[i]){
-            if(!ch()){
-                pn 
-                return;
-            }
-            t=string(1,s[i]);
-        } else t+=s[i];
+    ll l,r;
+    cin>>l>>r;
+    vec(ll)ans(r-l+1);
+    map<ll,ll>m;
+    for(int i=l,p=0;i<r+1;i++,p++){
+        ans[p]=i;
+        m[i]=p;
     }
-    if(ch()) py else pn
+    vec(bool) d(r-l+1,false);
+    for(int p=ch(r);p>l;p/=2){
+        if(d[m[p]]) continue;
+        for(int i=m[p],j=m[p]-1;i<=r && j>=0;i++,j--){
+            if(d[i]) break;
+            swap(m[ans[i]],m[ans[j]]);
+            swap(ans[i],ans[j]);
+            d[i]=d[j]=true;
+        }
+    }
+    ll c=0;
+    for(int p=0,i=l; i<=r;i++,p++) c+=(ans[p]|i);
+    co(c)
+    flx(ans)
 }
 
 int main() {

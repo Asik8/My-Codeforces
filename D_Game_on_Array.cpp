@@ -47,18 +47,17 @@ void asikM(){
     bool a=true,b=false;
     ll c=0,d=0;
     for(auto [x,y]:od){
-        if(y==1){
-            if(a){
-                c+=x;
-                tt(a,b);
-            } else{
-                d+=x;
-                tt(a,b);
-            }
-        } else{
-            
-        }
+        c+=(x/2)*y;
+        d+=(x/2)*y;
+        if(a) c+=y;
+        else d+=y;
+        tt(a,b);
     }
+    for(auto [x,y]:ev){
+        c+=(x/2)*y;
+        d+=(x/2)*y;
+    }
+    cout<<c<<" "<<d<<el
 }
 
 int main() {
