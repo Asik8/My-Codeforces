@@ -22,10 +22,25 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n;
+    ll n,c=0;
     cin >> n;
     vector <ll> v(n);
     for (auto& x:v) cin >>x; 
+    for(int i=1;i<n-1;i+=2){
+        if(v[i]<v[i-1]+v[i+1]){
+            ll s=v[i-1]+v[i+1];
+            ll red=s-v[i];
+            c+=red;
+            if(red<=v[i+1]) v[i+1]-=red;
+            else{
+                red-=v[i+1];
+                v[i+1]=0;
+                v[i-1]-=red;
+            }
+        }
+    }
+    if(!(n&1) && v[n-1]<v[n-2]) c+=v[n-2]-v[n-1];
+    co(c)
 }
 
 int main() {

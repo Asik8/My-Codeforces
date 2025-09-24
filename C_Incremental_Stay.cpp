@@ -22,16 +22,17 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,st=0;
+    ll n;
     cin >> n;
-    vector <ll> v(n);
+    vector <ll> v(2*n),ans;
     for (auto& x:v) cin >>x; 
-    ll l=v[0];
-    fl(i,1,n){
-        if((l&1) == (v[i]&1)) st++;
-        else l=v[i];
+    sort(all(v));
+    fl(i,1,n+1){
+        ll s=0;
+        for(int j=0;j<2*n;j+=i+1){
+            s+=v[j+i]-v[j];
+        }
     }
-    co(st)
 }
 
 int main() {
