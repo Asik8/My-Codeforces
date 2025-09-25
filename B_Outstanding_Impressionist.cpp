@@ -20,33 +20,37 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-const ll N=1e5;
 
 void asikM(){
-    ll n,m;
-    cin >> n>>m;
-    vec(ll)v(m);
+    ll n;
+    cin >> n;
     string s;
-    cin>>s;
-    for(auto &x:v) cin>>x;
-    set<ll>st;
-    fl(i,0,m) st.insert(v[i]);
-    fl(i,1,n+1){
-        ll p=1;
-        for(int j=0;j<i;j++){
-            if(s[j]=='B'){
-                p++;
-                while(st.count(p))p++;
-            } else p++;
-            // cout<<j<<" "<<p<<el
+    vec(pi)v;
+    vec(ll)ps(2*n+1,0),fr(2*n+1,0);
+    forni{
+        ll l,r;
+        cin>>l>>r;
+        v.pb({l,r});
+        if(l==r){
+            ps[l]=1;
+            fr[l]++;
         }
-        // elc
-        // cout<<i<<" "<<p<<el
-        // elc
-        st.insert(p);
     }
-    co(sz(st))
-    flx(st)
+    fl(i,1,sz(ps))ps[i]+=ps[i-1];
+    // flx(ps)
+    // flx(fr)
+    // co(sz(v))
+    for(auto[l,r]:v){
+        if(l==r){
+            if(fr[l]>1) s+='0';
+            else s+='1';
+        } else{
+            ll lim=ps[r]-ps[l-1];
+            if(lim< (r-l+1)) s+='1';
+            else s+='0';
+        }
+    }
+    co(s)
 }
 
 int main() {

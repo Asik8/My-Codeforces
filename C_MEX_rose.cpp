@@ -20,33 +20,24 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-const ll N=1e5;
 
 void asikM(){
-    ll n,m;
-    cin >> n>>m;
-    vec(ll)v(m);
-    string s;
-    cin>>s;
-    for(auto &x:v) cin>>x;
-    set<ll>st;
-    fl(i,0,m) st.insert(v[i]);
-    fl(i,1,n+1){
-        ll p=1;
-        for(int j=0;j<i;j++){
-            if(s[j]=='B'){
-                p++;
-                while(st.count(p))p++;
-            } else p++;
-            // cout<<j<<" "<<p<<el
-        }
-        // elc
-        // cout<<i<<" "<<p<<el
-        // elc
-        st.insert(p);
+    ll n,k;
+    cin >> n>>k;
+    vector <ll> v(n);
+    set<ll>s;
+    ll c=0,d=0;
+    for (auto& x:v){
+        cin >>x; 
+        s.insert(x);
+        if(x==k) c++;
     }
-    co(sz(st))
-    flx(st)
+    ll i=0;
+    while(i<k){
+        if(!s.count(i)) d++;
+        i++;
+    }
+    co(max(c,d))
 }
 
 int main() {

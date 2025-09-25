@@ -20,33 +20,33 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-const ll N=1e5;
 
 void asikM(){
-    ll n,m;
-    cin >> n>>m;
-    vec(ll)v(m);
+    ll n;
+    cin >> n;
     string s;
     cin>>s;
-    for(auto &x:v) cin>>x;
-    set<ll>st;
-    fl(i,0,m) st.insert(v[i]);
-    fl(i,1,n+1){
-        ll p=1;
-        for(int j=0;j<i;j++){
-            if(s[j]=='B'){
-                p++;
-                while(st.count(p))p++;
-            } else p++;
-            // cout<<j<<" "<<p<<el
-        }
-        // elc
-        // cout<<i<<" "<<p<<el
-        // elc
-        st.insert(p);
+    vector<int> pa, pvb;
+    forni{
+        if (s[i] == 'a') pa.pb(i);
+        else pvb.pb(i);
     }
-    co(sz(st))
-    flx(st)
+    ll c1=0,c2=0,ca=pa.size(),cb=pvb.size();
+    if(ca>0){
+        vector<ll> qA;
+        fl(i,0,ca)  qA.pb(pa[i] - i);
+        sort(all(qA));
+        ll md=qA[ca / 2];
+        fl(i,0,ca)  c1 += abs(qA[i] - md);
+    }
+    if(cb > 0) {
+        vector<ll> qB;
+        fl(i,0,cb)  qB.pb(pvb[i] - i);
+        sort(all(qB));
+        ll md=qB[cb / 2];
+        fl(i,0,cb) c2 += abs(qB[i] - md);
+    }
+    co(min(c1, c2))
 }
 
 int main() {

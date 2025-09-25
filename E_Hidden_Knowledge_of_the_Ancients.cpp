@@ -20,41 +20,39 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-const ll N=1e5;
 
-void asikM(){
-    ll n,m;
-    cin >> n>>m;
-    vec(ll)v(m);
-    string s;
-    cin>>s;
-    for(auto &x:v) cin>>x;
-    set<ll>st;
-    fl(i,0,m) st.insert(v[i]);
-    fl(i,1,n+1){
-        ll p=1;
-        for(int j=0;j<i;j++){
-            if(s[j]=='B'){
-                p++;
-                while(st.count(p))p++;
-            } else p++;
-            // cout<<j<<" "<<p<<el
+ll cok(vec(int) &v, int k, int l, int r) {
+    if(k<0) return 0;
+    int n=sz(v);
+    unordered_map<int,int> mp;
+    ll lf=0,c=0;
+    fl(i,0,n) {
+        mp[v[i]]++;
+        while (sz(mp) > k) {
+            mp[v[lf]]--;
+            if (mp[v[lf]] == 0) mp.erase(v[lf]);
+            lf++;
         }
-        // elc
-        // cout<<i<<" "<<p<<el
-        // elc
-        st.insert(p);
+        ll mn= max(lf,(ll)(i-r+1)),mx= i-l+1;
+        if (mn<=mx&&mx>=0) c+= max(0LL,mx-mn+1);
     }
-    co(sz(st))
-    flx(st)
+    return c;
+}
+
+void asikM() {
+    int n,k,l,r;
+    cin>>n>>k>>l>>r;
+    vec(int) v(n);
+    for(auto &x:v)cin>>x;
+    ll ans=cok(v,k,l,r)-cok(v,k-1,l,r);
+    co(ans)
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    ll t=1;
+    int t = 1;
     cin >> t;
-    while (t--)
-    asikM();      
+    while (t--) asikM();
     return 0;
 }
