@@ -23,42 +23,33 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-ll compute_cost(vector<int>& positions) {
-    ll cost = 0;
-    for (int i = 0; i + 2 < positions.size(); i += 3) {
-        int d1 = positions[i+1] - positions[i];
-        int d2 = positions[i+2] - positions[i+1];
-        cost += min(d1, d2);
-    }
-    return cost;
-}
-
 void asikM(){
     ll n,q;
     cin>>n>>q;
-    vector<ll>v(n+1),a(n+1,0),b(n+1,0),p1,p2;
+    vector<ll>v(n),a(n+1,0),b(n+1,0),dp(n,1);
     for(auto& x:v)cin>>x; 
-    fl(i,1,n+1,1){
-        cin>>v[i];
-        if(v[i]==0) p1.pbk(i);
-        else p2.pbk(i);
-        // if(v[i]==0) a[i+1]=1;
-        // else b[i+1]=1;
+    forni{
+        if(v[i]==0) a[i+1]=1;
+        else b[i+1]=1;
     }
-    // fl(i,1,n+1,1){
-    //     cin>>v[i];
-    //     a[i]=(a[i])? a[i-1]+1:a[i-1];
-    //     b[i]=(b[i])? b[i-1]+1:b[i-1];
-    // }
+    fl(i,1,n+1,1){
+        a[i]=(a[i])? a[i-1]+1:a[i-1];
+        b[i]=(b[i])? b[i-1]+1:b[i-1];
+    }
+    fl(i,1,n,1) if(v[i]!=v[i-1]) dp[i]+=dp[i-1];
     // flx(a)
     // flx(b)
+    // flx(dp)
     while(q--){
         ll l,r;
         cin>>l>>r;
-        auto l1=lower_bound(all(p1),l);
-        auto r1=lower_bound(all(p1),r);
-        auto l2=lower_bound(all(p2),l);
-        auto r2=lower_bound(all(p2),r);
+        ll z=a[r]-a[l-1],o=b[r]-b[l-1];
+        if(z%3 || o%3){
+            co(-1)
+            continue;
+        }
+        if(l-1<=r-dp[r-1]-1) co((r-l+1)/3)
+        else co(((r-l+1)/3)+1)
     }
 }
 

@@ -24,16 +24,13 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,rk,ck,rd,cd;
+    ll n,rk,ck,rd,cd,ans=0;
     cin>>n>>rk>>ck>>rd>>cd;
-    if(cd<ck && rd>rk) co(max((n-cd),rd))
-    if(cd<ck && rd<rk) co(max((n-cd),(n-rd)))
-    if(cd>ck && rd>rk) co(max((n-cd),rd))
-    if(cd>ck && rd<rk) co(max(cd,(rd)))
-    if(cd>ck && rd==rk) co(cd)
-    if(cd<ck && rd==rk) co(n-cd)
-    if(cd==ck && rd<rk) co(n-rd)
-    if(cd==ck && rd>rk) co(rd)
+    if(rk<rd) ans=max(ans,rd);
+    else if(rk>rd) ans=max(ans,n-rd);
+    if(cd<ck) ans=max(ans,n-cd);
+    else if(ck<cd) ans=max(ans,cd);
+    co(ans)
 }
 
 int main() {
