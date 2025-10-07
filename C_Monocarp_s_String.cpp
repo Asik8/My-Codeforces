@@ -28,38 +28,24 @@ void asikM(){
     cin>>n;
     string s;
     cin>>s;
-    if(count(all(s),'a')==n || count(all(s),'b')==n){
+    ll ca=count(all(s),'a'),cb=count(all(s),'b'),ans=LLONG_MAX;
+    if(ca==n || cb==n){
         co(-1)
         return;
-    }
-    ll ca=count(all(s),'a'),cb=count(all(s),'b'),ans=LLONG_MAX;
-    if(ca==cb){
+    } else if(ca==cb){
         co(0)
         return;
     }
-    // ll ta=0,tb=0,c=0;
-    // acv(s,x){
-    //     if(x=='a') ta++;
-    //     else tb++;
-    //     if(ta==tb) ans=min(ans,n-(ta+tb));
-    // }
-    // ta=0,tb=0;
-    // for(int i=n-1;i>=0;i--){
-    //     if(s[i]=='a') ta++;
-    //     else tb++;
-    //     if(ta==tb) ans=min(ans,n-(ta+tb));
-    // }
     ll d=ca-cb;
     vec(ll) p(n+1,0);
-    for(int i=0; i<n; i++) p[i+1]=p[i]+(s[i]=='a'?1:-1);
+    fl(i,1,n+1,1) p[i]=p[i-1]+(s[i-1]=='a'?1:-1);
     map<ll,ll> m; 
     m[0]= 0;
     fl(i,1,n+1,1){
         ll nd = p[i]-d;
         if(m.find(nd)!=m.end()) ans=min(ans,i-m[nd]);
-        if(m.find(p[i])==m.end()) m[p[i]]=i;
+        m[p[i]]=i;
     }
-
     if(ans==LLONG_MAX || ans==n) co(-1) else co(ans)
 }
 

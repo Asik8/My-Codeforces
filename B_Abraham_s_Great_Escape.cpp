@@ -9,7 +9,7 @@ using namespace std;
 #define pn cout<<"NO\n";
 #define pns cout<<"No\n";
 #define co(x1) cout<<x1<<"\n";
-#define ct(x1) cout<<x1<<" ";
+#define ct(x1) cout<<x1;
 #define elc cout<<"\n";
 #define el "\n";
 #define fl(x1,x2,x3,x4) for(int x1=x2;x1<x3;x1+=x4)
@@ -26,78 +26,20 @@ using namespace std;
 void asikM(){
     ll n,k;
     cin>>n>>k;
-    if((n*n)-k==1){
+    k=(n*n)-k;
+    if(k==1){
         pn
         return;
-    }
-    vector<vector<char>> a(n, vector<char>(n,'#'));
-    ll c=0,top = 0, bottom = n-1, left = 0, right = n-1;
-    while(top <= bottom && left <= right && c < k){
-        for(ll i=left; i<=right && c<k; i++){
-            a[top][i] = 'U';
-            c++;
-        }
-        top++;
-        if(c==k) break;
-        for(ll i=top; i<=bottom && c<k; i++){
-            a[i][right] = 'R';
-            c++;
-        }
-        right--;
-        if(c==k) break;
-        if(top <= bottom){
-            for(ll i=right; i>=left && c<k; i--){
-                a[bottom][i] = 'D';
-                c++;
-            }
-            bottom--;
-        }
-        if(c==k) break;
-        if(left <= right){
-            for(ll i=bottom; i>=top && c<k; i--){
-                a[i][left] = 'L';
-                c++;
-            }
-            left++;
-        }
-    }
-    int la=-1,rla=-1;
-    fl(i,0,n,1){
-        fl(j,0,n,1){
-            if(a[i][j] == '#'){
-                if(i < n-1 && a[i+1][j] == '#') {
-                    a[i][j] = 'D';  
-                    la=i;
-                    rla=j;
-                }
-                else if(j < n-1 && a[i][j+1] == '#') {
-                    a[i][j] = 'R';  
-                    la=i;
-                    rla=j;
-                }
-                else if(i > 0 && a[i-1][j] == '#') {
-                    a[i][j] = 'U'; 
-                    la=i;
-                    rla=j; 
-                }
-                else if(j > 0 && a[i][j-1] == '#') {
-                    a[i][j] = 'L'; 
-                    la=i;
-                    rla=j; 
-                }
-                else{
-                    if(la==i-1 && rla==j) a[i][j]='U';
-                    else if(la==i+1 && rla==j) a[i][j]='D';
-                    else if(la==i && rla==j-1) a[i][j]='L';
-                    else if(la==i && rla==j+1) a[i][j]='R';
-                }
-            }
-        }
     }
     py
     fl(i,0,n,1){
         fl(j,0,n,1){
-            cout<<a[i][j];
+            if(k){
+                k--;
+                if(i==0 && j==0) ct('R')
+                else if(i==0) ct('L')
+                else ct('U')
+            } else ct('D')
         }
         elc
     }

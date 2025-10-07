@@ -28,9 +28,9 @@ void asikM(){
     cin>>n>>k;
     string s;
     cin>>s;
-    if(count(all(s),'2')==n){
-        if(k==1)co('-')
-        else forni cout<<'?';
+    if(k==n){
+        forni cout<<'-';
+        elc
         return;
     }
     vector<char>v(n,'+');
