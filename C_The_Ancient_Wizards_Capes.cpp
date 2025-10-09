@@ -22,15 +22,24 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-const ll N=1e9+7;
 
 void asikM(){
-    ll n,k;
-    cin>>n>>k;
-    ll ans=n;
-    fl(i,0,k-1,1){
-        ans%=N;
-        ans=(ans*n)%N;
+    ll n,ans=0;
+    cin>>n;
+    vector<ll>a(n),b(n);
+    for(auto& x:a)cin>>x; 
+    // flx(a)
+    fl(k,0,2,1){
+        b[0]=k;
+        fl(i,1,n,1) b[i]=1-(b[i-1]+a[i]-a[i-1]);
+        // flx(b)
+        ll mn=*min_element(all(b)),mx=*max_element(all(b));
+        // cout<<mn<<' '<<mx<<el
+        if(mn>=0 && mx<=1){
+            ll c=1+accumulate(b.begin()+1,b.end(),0LL);
+            if(c==a[0]) ans++;
+            // cout<<"c "<<c<<" "<<ans<<el
+        }
     }
     co(ans)
 }
