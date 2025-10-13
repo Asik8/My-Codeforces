@@ -23,34 +23,52 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-string dtobi(int n) {
-    if(n==0) return"0";
-    string s = "";
-    while(n>0) {
-        s+=(n%2)?'1':'0';
-        n/=2;
+void qr(vec(ll) v, bool f){
+    if(f){
+        ct("?")
+        ct(sz(v))
+        acv(v,x) ct(x)
+        elc
+    } else{
+        ct("?")
+        ct(sz(v))
+        flr(i,sz(v)-1,0,1) ct(v[i])
+        elc
     }
-    reverse(s.begin(), s.end());
-    return s;
-}
-
-bool cpal(string s,int l,int r){
-    while(l<r){
-        if(s[l]!=s[r]) return false;
-        l++;
-        r--;
-    }
-    return true;
+    cout.flush();
 }
 
 void asikM(){
     ll n;
     cin>>n;
-    string s=dtobi(n);
-    ll c=0,l=0,r=sz(s)-1;
-    while(r>l && s[r]=='0')r--;
-    acv(s,x) if(x=='1') c++;
-    if(cpal(s,l,r) && !(c&1)) py else pn 
+    n*=2;
+    vector<ll>ans(n,-1),q;
+    fl(i,0,n,1){
+        q.pbk(i+1);
+        ll x;
+        qr(q,true);
+        cin>>x;
+        if(x!=0){
+            ans[i]=x;
+            q.pop_back();
+        }
+    }
+    q.clear();
+    flr(i,n-1,0,1){
+        ll x;
+        q.pbk(i+1);
+        if(ans[i]==-1){
+            qr(q,false);
+            cin>>x;
+            if(x!=0){
+                ans[i]=x;
+                q.pop_back();
+            }
+        }
+    }
+    ct('!')
+    flx(ans)
+    cout.flush();
 }
 
 int main() {

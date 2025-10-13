@@ -23,34 +23,22 @@ using namespace std;
 #define sz(x) x.size()
 #define vec(x) vector<x>
 
-string dtobi(int n) {
-    if(n==0) return"0";
-    string s = "";
-    while(n>0) {
-        s+=(n%2)?'1':'0';
-        n/=2;
-    }
-    reverse(s.begin(), s.end());
-    return s;
-}
-
-bool cpal(string s,int l,int r){
-    while(l<r){
-        if(s[l]!=s[r]) return false;
-        l++;
-        r--;
-    }
-    return true;
-}
-
 void asikM(){
     ll n;
     cin>>n;
-    string s=dtobi(n);
-    ll c=0,l=0,r=sz(s)-1;
-    while(r>l && s[r]=='0')r--;
-    acv(s,x) if(x=='1') c++;
-    if(cpal(s,l,r) && !(c&1)) py else pn 
+    ll ans=LLONG_MAX;
+    fl(o,0,11,1){
+        fl(t,0,11,1){
+            fl(s,0,11,1){
+                fl(tn,0,11,1){
+                    ll sm=(o*1)+(t*3)+(s*6)+(tn*10);
+                    if(sm<=n && !((n-sm)%15))
+                        ans=min(ans,o+t+s+tn+(n-sm)/15);
+                }
+            }
+        }
+    }
+    co(ans)
 }
 
 int main() {
