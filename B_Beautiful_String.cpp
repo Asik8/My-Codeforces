@@ -22,41 +22,19 @@ using namespace std;
 #define allr(x1) x1.rbegin(),x1.rend()
 #define sz(x) x.size()
 #define vec(x) vector<x>
-set<ll>st;
-bool is_pal(ll l,ll r,string s){
-    string ns;
-    fl(i,0,sz(s),1){
-        if(i<l && i>r) r+=s[l];
-    }
-}
 
 void asikM(){
     ll n;
     cin>>n;
     string s;
     cin>>s;
-    bool f=true;
-    fl(i,0,n-1,1){
-        if(s[i]>s[i+1]){
-            f=false;
-            break;
-        }
-    }
-    if(f){
-        co(n)
-        forni ct(i+1)
-        elc
-        return;
-    }
     ll l=0,r=n-1;
     while(l<r && s[l]==s[r]){
         l++;
         r--;
     }
     vec(ll)ans;
-    fl(i,l,r+1,1){
-        if(s[i]=='1') ans.pbk(i+1);
-    }
+    fl(i,l,r+1,1) if(s[i]=='1') ans.pbk(i+1);
     co(sz(ans))
     flx(ans)
 }
