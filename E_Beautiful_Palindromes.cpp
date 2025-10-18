@@ -26,13 +26,26 @@ using namespace std;
 void asikM(){
     ll n,k;
     cin>>n>>k;
-    vector<ll>v(n);
-    for(auto& x:v)cin>>x; 
-    ll l=v.back()+1;
-    while(k){
-        if(l>n) l=1;
-        ct(l++)
-        k--;
+    vector<ll>v(n),un;
+    set<ll>s;
+    for(auto& x:v) cin>>x; 
+    forni s.insert(i+1);
+    forni s.erase(v[i]);
+    if(s.empty()){
+        fl(i,0,k,1) ct(v[i])
+        elc
+        return; 
+    }
+    ll f=*s.begin();
+    forni s.insert(i+1);
+    s.erase(f);
+    s.erase(v[n-1]);
+    ct(f)
+    fl(i,0,k-1,1){
+        if(sz(s)){
+            ct(*s.begin());
+            s.erase(s.begin());
+        } else ct(v[n-1])
     }
     elc
 }

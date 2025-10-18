@@ -24,42 +24,47 @@ using namespace std;
 #define vec(x) vector<x>
 
 ll n;
-ll qo(ll l,ll r){
-    cout<<1<<" "<<l<<" "<<r<<el
+void qu(ll ty,ll l,ll r){
+    cout<<ty<<" "<<l<<" "<<r<<endl;
     cout.flush();
-    ll a;
-    cin>>a;
-    return a;
 }
-
-ll qt(ll l,ll r){
-    cout<<2<<" "<<l<<" "<<r<<el
-    cout.flush();
-    ll a;
-    cin>>a;
-    return a;
-}
-
 void asikM(){
     cin>>n;
-    ll tp=qo(1,n), ta=qt(1,n);
+    ll tp,ta;
+    qu(1,1,n);
+    cin>>tp;
+    qu(2,1,n);
+    cin>>ta;
     ll len=ta-tp;
+    if(len==n){
+        cout<<"! "<<1<<" "<<n<<endl;
+        cout.flush();
+        return;
+    }
     ll lw=1,h=n;
-    while(lw<h){
-        ll m=(lw+h)/2;
-        ll sp=qo(1,m),sa=qt(1,m);
-        if(sa-sp==0)lw=m+1;
-        else h=m;
+    pi ans={1,n}; 
+    while(lw<=h){
+        ll m=lw+(h-lw)/2;
+        ll sp,sa;
+        qu(1,lw,m);
+        cin>>sp;
+        qu(2,lw,m);
+        cin>>sa;
+        ll d=sa-sp;
+        if(d==0){
+            lw=m+1;
+            ans={lw,h};
+        } else if(d==len){
+            h=m;
+            ans={lw,h};
+            if(h-lw+1 ==len) break;
+        } else{
+            ll r=len-d;
+            ans={m-d+1,m+r};
+            break;
+        }
     }
-    ll l=lw;
-    h=n;
-    while(lw<h){
-        ll m=(lw+h)/2;
-        ll sp=qo(l,m),sa=qt(l,m);
-        if(sa-sp==(m-l+1))lw=m+1;
-        else h=m;
-    }
-    cout<<"! "<<l<<" "<<lw<<el
+    cout<<"! "<<ans.first<<" "<<ans.second<<el
     cout.flush();
 }
 

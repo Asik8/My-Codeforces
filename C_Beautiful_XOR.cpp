@@ -26,19 +26,19 @@ using namespace std;
 void asikM(){
     ll a,b;
     cin>>a>>b;
-    ll ha = 31 - __builtin_clzll(a), hb = 31 - __builtin_clzll(b);
-    if(ha<hb){
+    vector<ll>ans;
+    fl(i,0,31,1){
+        if((a&(1LL<<i)) && !(b&(1LL<<i))) ans.pbk((1LL<<i));
+        else if(!(a&(1LL<<i)) && (b&(1LL<<i))) ans.pbk((1LL<<i));
+    }
+    sort(all(ans));
+    if(sz(ans) && ans.back()>a){
         co(-1)
         return;
     }
-    vector<ll>ans;
-    fl(i,0,31,1){
-        if((a&(1LL<<i)) && !(b&(1LL<<i))) ans.pbk(i);
-        else if(!(a&(1LL<<i)) && (b&(1LL<<i))) ans.pbk(i);
-    }
     co(sz(ans))
     if(sz(ans)){
-        fl(i,0,sz(ans),1) ct((1LL<<ans[i]))
+        fl(i,0,sz(ans),1) ct((ans[i]))
         elc
     }
 }

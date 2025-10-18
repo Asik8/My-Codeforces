@@ -28,15 +28,14 @@ void asikM(){
     cin>>n;
     string s;
     cin>>s;
-    ll l=0,r=n-1;
-    while(l<r && s[l]==s[r]){
-        l++;
-        r--;
+    ll l=count(all(s),'0'),r=count(all(s),'1');
+    if(l==n || r==n){
+        co(0)
+        return;
     }
-    vec(ll)ans;
-    fl(i,l,r+1,1) if(s[i]=='1') ans.pbk(i+1);
-    co(sz(ans))
-    flx(ans)
+    co(l)
+    forni if(s[i]=='0') ct(i+1)
+    elc
 }
 
 int main() {
