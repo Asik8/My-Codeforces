@@ -24,42 +24,31 @@ using namespace std;
 #define vec(x) vector<x>
 
 void asikM(){
-    ll n,k,ans=1;
-    cin>>n>>k;
-    map<ll,ll>m;
-    vector<ll>v(n);
-    for(auto& x:v){
-        cin>>x; 
-        m[x]++;
-    }
-    sort(all(v));
+    ll n;
+    cin>>n;
+    vector<pi>a(n),b(n);
+    for(auto& x:a)cin>>x.first>>x.second; 
+    for(auto& x:b)cin>>x.first>>x.second; 
+    map<pi,ll>m;
     fl(i,0,n,1){
-        ll av=m[i+1]+m[(i+1)*2]+m[(i+1)*3];
-        ll l=0,r=n-1,in=-1;
-        while(l<=r){
-            ll md=l+(r-l)/2;
-            if(4*(i+1)<=v[md]){
-                in=md;
-                r=md-1;
-            } else l=md+1;
+        fl(j,0,n,1){
+            m[{a[i].first+b[j].first,a[i].second+b[j].second}]++;
         }
-        if(in!=-1) av+=(n-in);
-        ll rem=n-av;
-        if(rem<=k){
-            ans=max(ans,(ll)i+1);
-            // cout<<ans<<" "<<i<<el
+    }
+    acp(m,x,y){
+        if(y==n){
+            cout<<x.first<<" "<<x.second<<el
+            return;
         }
-    }      
-    co(ans)
+    }
 }
 
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
     ll t=1;
-    cin>>t;
+    // cin>>t;
     while(t--)
     asikM();      
     return 0;
 }
-
