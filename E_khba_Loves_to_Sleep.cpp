@@ -28,22 +28,29 @@ void asikM(){
     cin>>n>>k>>x;
     vector<ll>v(n);
     for(auto& x:v)cin>>x;
-    if(k>x){
-        fl(i,0,x+1,1) ct(i)
-        elc
-        return;
-    }
     sort(all(v));
-    vector<pair<ll,pi>>d;
-    if(v[0]>0) d.pbk({v[0],{0,v[0]}});
-    fl(i,1,n-1,1){
-        if(v[i+1]-v[i]>1){
-            d.pbk({v[i+1]-v[i],{v[i],v[i+1]}});
+    auto ch=[&](ll d){
+        vec(ll) ans;
+        for(ll p=0;p<=x && sz(ans)<k;p++){
+            ll i=upper_bound(all(v),p)-v.begin();
+            if(i<n && v[i]-p<d){
+                p=max(p,v[i]+d-1);
+                continue;
+            }
+            if(i>0 && p-v[i-1]<d){
+                p=max(p,v[i-1]+d-1);
+                continue;
+            }
+            ans.pbk(p);
         }
+        return ans;
+    };
+    ll l=0,r=x+1;
+    while(r-l>1){
+        ll m=(l+r)/2;
+        (sz(ch(m))==k?l:r)=m;
     }
-    if(v.back()<x) d.pbk({x-v.back(),{v.back(),x}});
-    sort(allr(d));
-    acp(d,x,y) cout<<x<<" "<<y.first<<" "<<y.second<<el
+    flx(ch(l))
 }
 
 int main() {
