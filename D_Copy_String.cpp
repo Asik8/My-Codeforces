@@ -60,33 +60,38 @@ void adc(const T& x){
 #define timeMan {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 void asikM(){
-    ll n,m;
-    cin>>n>>m;
-    vector<ll>v(n);
-    vec(pi) b(m);
-    for(auto& x:v)cin>>x; 
-    for(auto& x:b)cin>>x.first; 
-    for(auto& x:b)cin>>x.second; 
-    srt(b)
-    multiset<ll>ms(all(v));
-    ll cnt=0;
-    fl(i,0,m,1){
-        if(!b[i].second) continue;
-        auto it=ms.lower_bound(b[i].first);
-        if(it==ms.end()) break;
-        ll val=*it;
-        ms.erase(it);
-        ms.insert(max(val,b[i].second));
-        cnt++;
+    ll n,k;
+    cin>>n>>k;
+    string s,t;
+    cin>>s>>t;
+    vector<ll>v(n),la(n);
+    ll l=n-1,mx=0;
+    flr(i,n-1,0,1){
+        l=min(l,(ll)i);
+        while(l>=0 && s[l]!=t[i]) l--;
+        if(l<0){ co(-1) return;}
+        v[i]=l;
+        mx=max(mx,i-l);
     }
-    fl(i,0,m,1){
-        if(b[i].second) continue;
-        auto it=ms.lower_bound(b[i].first);
-        if(it==ms.end()) break;
-        ms.erase(it);
-        cnt++;
+    if(mx>k){ co(-1) return;}
+    vector<vector<ll>>ans;
+    forni la[i]=i;
+    fl(i,0,mx,1){
+        vec(ll) tmp(n);
+        tmp[0]=la[0];
+        fl(j,1,n,1){
+            if(la[j]!=v[j]) tmp[j]=la[j-1];
+            else tmp[j]=la[j];
+        }
+        ans.pbk(tmp);
+        swap(la,tmp);
     }
-    co(cnt)
+    assert(mx==0 || ans.back()==v);
+    co(mx)
+    fl(i,0,mx,1){
+        acv(ans[i],x) cout<<s[x];
+        elc
+    }
 }
 
 int main() {

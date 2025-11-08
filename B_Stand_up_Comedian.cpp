@@ -60,33 +60,10 @@ void adc(const T& x){
 #define timeMan {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 void asikM(){
-    ll n,m;
-    cin>>n>>m;
-    vector<ll>v(n);
-    vec(pi) b(m);
-    for(auto& x:v)cin>>x; 
-    for(auto& x:b)cin>>x.first; 
-    for(auto& x:b)cin>>x.second; 
-    srt(b)
-    multiset<ll>ms(all(v));
-    ll cnt=0;
-    fl(i,0,m,1){
-        if(!b[i].second) continue;
-        auto it=ms.lower_bound(b[i].first);
-        if(it==ms.end()) break;
-        ll val=*it;
-        ms.erase(it);
-        ms.insert(max(val,b[i].second));
-        cnt++;
-    }
-    fl(i,0,m,1){
-        if(b[i].second) continue;
-        auto it=ms.lower_bound(b[i].first);
-        if(it==ms.end()) break;
-        ms.erase(it);
-        cnt++;
-    }
-    co(cnt)
+    ll a,b,c,d;
+    cin>>a>>b>>c>>d;
+    if(a==0) {co(1) return;}
+    co(a+(min(b,c)*2)+min(a+1,abs(b-c)+d))
 }
 
 int main() {

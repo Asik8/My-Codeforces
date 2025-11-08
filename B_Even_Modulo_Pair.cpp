@@ -62,23 +62,12 @@ void adc(const T& x){
 void asikM(){
     ll n;
     cin>>n;
-    vector<ll>v(n),ev,od;
-    for(auto& x:v){
-        cin>>x; 
-        if(x&1) od.pbk(x);
-        else ev.pbk(x);
-    }
-    if(sz(ev)>1){
-        cout<<ev[0]<<" "<<ev[1]<<el
-        return;
-    } else if(v[0]==1){
-        cout<<v[0]<<" "<<v[1]<<el
-        return;
-    }
-    for(int i=0;i<min(n,3LL);i++){
-        for(int j=i+1;j<n;j++){
-            if((v[j]%v[i])%2==0){
-                cout<<v[i]<<" "<<v[j]<<el
+    vector<ll>v(n);
+    for(auto& x:v) cin>>x; 
+    for(int i=0;i<n;i++){
+        for(int j=0;j<i;j++){
+            if((v[i]%v[j])%2==0){
+                cout<<v[j]<<" "<<v[i]<<el
                 return;
             }
         }
