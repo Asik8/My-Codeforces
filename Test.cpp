@@ -1,5 +1,5 @@
 /******************************************************************
- *              Bismillah Hir Rahman Nir Raheem                   *
+ *                   In the name of Allah                         *
  *----------------------------------------------------------------*
  * Author   : asikM                                               *
  * Institute: Daffodil International University (DIU)             *
@@ -38,10 +38,11 @@ void adc(const T& x){
 
 #define pbk push_back
 #define pi pair<ll,ll>
-#define py cout<<"YES\n";
-#define pys cout<<"Yes\n";
-#define pn cout<<"NO\n";
-#define pns cout<<"No\n";
+#define rtc(x) {cout<<x<<endl; return;} 
+#define py {cout<<"YES\n"; return;}
+#define pys {cout<<"Yes\n"; return;}
+#define pn {cout<<"NO\n"; return;}
+#define pns {cout<<"No\n"; return;}
 #define co(x1) cout<<x1<<"\n";
 #define ct(x1) cout<<x1<<" ";
 #define elc cout<<"\n";
@@ -57,13 +58,11 @@ void adc(const T& x){
 #define srt(x1) sort(all(x1));
 #define sz(x) x.size()
 #define vec(x) vector<x>
-#define timeMan {ios::sync_with_stdio(false); cin.tie(NULL);}
+#define FastIN {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    ll t;
+    FastIN ll t;
     cin>>t;
     while(t--) {
         ll n;
