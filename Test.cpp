@@ -60,15 +60,24 @@ void adc(const T& x){
 #define vec(x) vector<x>
 #define FastIN {ios::sync_with_stdio(false); cin.tie(NULL);}
 
+void asikM(){
+    ll n;
+    cin>>n;
+    vector<ll>v(n);
+    for(auto& x:v)cin>>x; 
+    ll c=0,l=0,r=n-1,c1=0;
+    while(l<=r){
+        if(l<=r && v[l]>=v[r]) c+=v[l++];
+        else if(l<=r && v[r]>v[l]) c+=v[r--];
+        if(l<=r && v[l]>=v[r]) c1+=v[l++];
+        else if(l<=r && v[r]>v[l]) c1+=v[r--];
+    }
+    cout<<c<<" "<<c1<<el
+}
 
 int main() {
-    FastIN ll t;
-    cin>>t;
-    while(t--) {
-        ll n;
-        cin>>n;
-        vector<ll>v(n);
-        for(auto& x:v) cin>>x; 
-    }
+    FastIN ll t=1; 
+    while(t--){asikM();}
     return 0;
 }
+
