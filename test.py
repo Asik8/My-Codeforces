@@ -1,13 +1,7 @@
-a=input()
-b=a[:]
-b=list(b)
-while b and b[-1]=='0':
-    b.pop()
-b=''.join(b[::-1])
-# b[::-1]
-# print(a,b)
-print(b)
-if a==b:
-    print("YES")
-else: 
-    print("NO")
+
+import pyautogui
+n=int(input())
+for i in range(n):
+    for j in range(i+1):
+        pyautogui.write('*')
+    pyautogui.press('enter')

@@ -65,21 +65,21 @@ void asikM(){
     cin>>n;
     vector<ll>v(n);
     for(auto& x:v)cin>>x; 
-    stack<ll>s;
-    flr(i,n-1,0,1){
-        if(s.empty()||s.top()<v[i]) s.push(v[i]);
-        else{
-            ll t=s.top();
-            while(!s.empty() && s.top()>v[i])s.pop();
-            s.push(t);
+    bool f=true; ll c=0;
+    while(f){
+        forni{
+            if(v[i]&1){
+                f=false;
+                break;
+            } else v[i]/=2;
         }
+        c++;
     }
-    if(sz(s)>1) pns pys
+    co(c-1)
 }
 
 int main() {
     FastIN ll t=1; 
-    cin>>t;
     while(t--){asikM();}
     return 0;
 }

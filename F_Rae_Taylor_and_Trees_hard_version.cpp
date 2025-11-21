@@ -66,15 +66,21 @@ void asikM(){
     vector<ll>v(n);
     for(auto& x:v)cin>>x; 
     stack<ll>s;
+    vector<pi>p;
     flr(i,n-1,0,1){
         if(s.empty()||s.top()<v[i]) s.push(v[i]);
         else{
             ll t=s.top();
-            while(!s.empty() && s.top()>v[i])s.pop();
+            while(!s.empty() && s.top()>v[i]){
+                p.emplace_back(v[i],s.top());
+                s.pop();
+            }
             s.push(t);
         }
     }
-    if(sz(s)>1) pns pys
+    if(sz(s)>1) pns 
+    cout<<"Yes\n";
+    acp(p,x,y) cout<<x<<" "<<y<<el
 }
 
 int main() {
