@@ -61,24 +61,22 @@ void adc(const T& x){
 #define FastIN {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 void asikM(){
-    ll n,k,q;
-    cin>>n>>k>>q;
-    vec(ll) a(n,0),b(n,0);
-    while(q--){
-        ll c,l,r;
-        cin>>c>>l>>r;
+    ll n,m;
+    cin>>n>>m;
+    vector<ll>a(n),c(m);
+    for(auto& x:a)cin>>x; 
+    for(auto& x:c)cin>>x; 
+    srt(a)
+    ll l=n-1,ans=0,r=0;
+    while(l>=0){
+        if(c[a[l]-1]>c[r]){
+            ans+=c[r];
+            r++;
+        } else ans+=c[a[l]-1];
         l--;
-        if(c==1){
-            fl(i,l,r,1) a[i]=k;
-        } else{
-            fl(i,l,r,1) b[i]=1;
-        }
     }
-    forni{
-        if(a[i]==k && b[i]==1) a[i]=k+1;
-        else if(!a[i]) a[i]=(i%k);
-    }
-    flx(a)
+    // fl(i,0,l+1,1) ans+=c[a[i]-1];
+    co(ans)
 }
 
 int main() {
