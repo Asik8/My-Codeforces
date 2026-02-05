@@ -61,24 +61,24 @@ void adc(const T& x){
 #define FastIN {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 void asikM(){
-    ll n;
-    cin>>n;
-    vector<ll>v(n);
-    for(auto& x:v)cin>>x; 
-    ll r=0,l=0,x=n;
-    while(r<n && v[r]==x){
-        r++;
-        x--;
+    ll n,q;
+    cin>>n>>q;
+    vector<ll>a(n),b(n),ans;
+    for(auto& x:a)cin>>x; 
+    for(auto& x:b)cin>>x; 
+    // flx(a)
+    if(a.back()<b.back()) swap(a.back(),b.back());
+    flr(i,n-2,0,1) a[i]=max({a[i],a[i+1],b[i]});
+    // flx(a)
+    fl(i,1,n,1) a[i]+=a[i-1];
+    while(q--){
+        ll l,r;
+        cin>>l>>r;
+        l--,r--;
+        if(l>0) ans.pbk(a[r]-a[l-1]);
+        else ans.pbk(a[r]);
     }
-    // cout<<r<<" "<<x<<el
-    while(l<n && v[l]!=x) l++;
-    if(l>r) swap(l,r);
-    while(l<r){
-        swap(v[l],v[r]);
-        l++;
-        r--;
-    } 
-    flx(v)
+    flx(ans)
 }
 
 int main() {
