@@ -61,15 +61,17 @@ void adc(const T& x){
 #define FastIN {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 void asikM(){
-    ll n,h,l;
+    ll n,h,l,c1=0,c2=0;
     cin>>n>>h>>l;
-    vector<ll>v(n),a,b;
+    vector<ll>v(n);
+    if(h>l) swap(h,l);
     for(auto& x:v){
         cin>>x;
-        if(x<=h) a.pbk(x);
-        if(x<=l) b.pbk(x);
+        if(x<=h) c1++;
+        else if(x<=l) c2++;
     }
-    cout<<sz(a)/2<<" "<<sz(b)/2<<el
+    if(c1<=c2)co(c1)
+    else co(c2+(c1-c2)/2) 
 }
 
 int main() {
