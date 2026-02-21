@@ -754,6 +754,9 @@
   		  "#define fl(i, a, b, step)  for (int i = (a); i < (b); i += (step))",
   		  "#define flr(i, a, b, step) for (int i = (a); i >= (b); i -= (step))",
   		  "#define forni for(int i=0;i<n;i++)",
+  		  "int cmp(const void *a, const void *b){",
+  		  "    return (*(int*)a - *(int*)b);",
+  		  "}",
   		  "",
   		  "",
   		  "void asikM() {",
@@ -761,6 +764,7 @@
   		  "    scanf(\"%lld\", &n);",
   		  "    ll v[n];",
   		  "    for(ll i=0;i<n;i++) scanf(\"%lld\",&v[i]);$0",
+  		  "",
   		  "}",
   		  "",
   		  "int main() {",
@@ -771,8 +775,8 @@
   		  "}",
   		  ""
   		],
-  		"description": ""
-	},
+  		"description": "Snippet for C language"
+  	},
 
 	"Java Language Snippet": {
   	"prefix": "jlan",
