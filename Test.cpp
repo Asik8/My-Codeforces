@@ -2,7 +2,7 @@
  *                   In the name of Allah                         *
  *----------------------------------------------------------------*
  * Author   : asikM                                               *
- * Institute: Daffodil International University (DIU)             *
+ * Institute: Daffodil International University (DIU) (Alumni)    *
  * Country  : Bangladesh - Chapai Nawabganj                       *
  ******************************************************************/
 
@@ -10,32 +10,7 @@
 using namespace std;
 #define ll long long
 
-// ---------- Universal Access Function ----------
-template <typename T, typename = void>
-struct is_iterable : false_type {};
-template <typename T>
-struct is_iterable<T, decltype(begin(declval<T>()), end(declval<T>()), void())> : true_type {};
-template <typename T>
-struct is_pair : false_type {};
-template <typename T1, typename T2>
-struct is_pair<pair<T1, T2>> : true_type {};
-template <typename T>
-void adc(const T& x){
-    if constexpr (is_iterable<T>::value && !is_same_v<T, string>) {
-        for (auto &val : x) {
-            adc(val);
-            cout << " ";
-        }
-    }
-    else if constexpr (is_pair<T>::value) {
-        adc(x.first);
-        cout << " ";
-        adc(x.second);
-    }
-    else cout << x;
-}
-// ---------- End of the Universal Access ----------
-
+#define yn(f) cout << (f ? "YES\n" : "NO\n")
 #define pbk push_back
 #define pi pair<ll,ll>
 #define rtc(x) {cout<<x<<endl; return;} 
@@ -61,14 +36,12 @@ void adc(const T& x){
 #define FastIN {ios::sync_with_stdio(false); cin.tie(NULL);}
 
 void asikM(){
-    ll n; cin>>n;
-    vector<ll>v(n);
-    for(auto &x:v) cin>>x;
-    
+    yn(1);
 }
 
 int main() {
     FastIN ll t=1; 
+    // cin>>t;
     while(t--){asikM();}
     return 0;
 }
