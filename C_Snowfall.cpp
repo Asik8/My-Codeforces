@@ -41,21 +41,12 @@ void asikM(){
     vector<ll>v(n);
     for(auto& x:v)cin>>x; 
     ll c=0;
-    vector<ll>d,o;
-    forni{
-        if(!(v[i]%6)){
-            c++;
-            d.pbk(v[i]);
-        } else o.pbk(v[i]);
-    }
-    if(!c||c==n){
-        flx(v)
-        return;
-    }
-    fl(i,0,sz(o)-1,1) if((o[i]*o[i+1])%6==0)
-    sort(allr(o));
-    for(auto x:o) ct(x)
-    flx(d)
+    vector<ll>d,b,cd,o;
+    forni if(!(v[i]%6)) ct(v[i])
+    forni if((v[i]%6) && v[i]%2==0) ct(v[i])
+    forni if(v[i]%2 && v[i]%3) ct(v[i])
+    forni if((v[i]%6) && v[i]%3==0) ct(v[i])
+    elc
 }
 
 int main() {
